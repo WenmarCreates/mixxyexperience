@@ -1,0 +1,77 @@
+import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
+
+const HeroSection = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      <div className="absolute inset-0 bg-background/60" />
+
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
+        >
+          <Sparkles size={16} className="text-accent" />
+          <span className="text-sm text-foreground/80">Atlanta's Premier Mobile Bar Experience</span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-2"
+        >
+          Atlanta's Luxury Mobile
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="text-5xl md:text-7xl text-gold-italic mb-8"
+        >
+          Beverage Tap Cart
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed"
+        >
+          Elevate your celebration with our stunning Piaggio Ape tap truck. Six taps,
+          professional bartenders, and unforgettable style for weddings, birthdays,
+          corporate events, and more.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="#pricing"
+            className="px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all inline-flex items-center gap-2"
+          >
+            View Pricing <ArrowRight size={18} />
+          </a>
+          <a
+            href="#booking"
+            className="px-8 py-4 rounded-lg border border-foreground/30 text-foreground font-semibold text-base hover:bg-foreground/10 transition-all"
+          >
+            Book Now
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
