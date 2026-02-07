@@ -9,7 +9,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 bg-foreground/50" />
+      <div className="absolute inset-0 bg-foreground/60" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
@@ -26,7 +26,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl font-heading font-bold text-white mb-2"
+          className="text-5xl md:text-7xl font-heading font-bold text-white mb-2 drop-shadow-lg"
         >
           Atlanta's Luxury Mobile
         </motion.h1>
@@ -34,7 +34,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-5xl md:text-7xl text-gold-italic mb-8"
+          className="text-5xl md:text-7xl text-gold-italic mb-8 drop-shadow-lg"
         >
           Beverage Tap Cart
         </motion.p>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
         >
           Elevate your celebration with our stunning Piaggio Ape tap truck. Six taps,
           professional bartenders, and unforgettable style for weddings, birthdays,

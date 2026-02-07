@@ -73,8 +73,8 @@ const PricingSection = () => {
         <div className="text-center mb-4">
           <span className="text-sm uppercase tracking-widest text-accent font-medium">Packages & Pricing</span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-foreground mb-4">
-          Choose Your Mixxy Experience
+         <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-foreground mb-4">
+          Choose Your <span className="text-gold-italic">Mixxy</span> Experience
         </h2>
         <p className="text-center text-muted-foreground mb-4 max-w-xl mx-auto">
           From intimate gatherings to grand celebrations, we have the perfect package for your event.

@@ -44,9 +44,42 @@ const BookingSection = () => {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Booking request submitted! We'll be in touch within one business day.");
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      eventDate: formData.get("eventDate"),
+      eventLocation: formData.get("eventLocation"),
+      startTime: formData.get("startTime"),
+      endTime: formData.get("endTime"),
+      eventType: formData.get("eventType"),
+      guestCount: formData.get("guestCount"),
+      package: selectedPackage,
+      addOns: selectedAddOns,
+      details: formData.get("details"),
+    };
+
+    try {
+      const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Webhook failed");
+      toast.success("Booking request submitted! We'll be in touch within one business day.");
+    } catch {
+      toast.error("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass = "w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-body text-sm";
@@ -73,47 +106,47 @@ const BookingSection = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>First Name *</label>
-                <input type="text" required className={inputClass} placeholder="First name" />
+                <input type="text" name="firstName" required className={inputClass} placeholder="First name" />
               </div>
               <div>
                 <label className={labelClass}>Last Name *</label>
-                <input type="text" required className={inputClass} placeholder="Last name" />
+                <input type="text" name="lastName" required className={inputClass} placeholder="Last name" />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>Email *</label>
-                <input type="email" required className={inputClass} placeholder="your@email.com" />
+                <input type="email" name="email" required className={inputClass} placeholder="your@email.com" />
               </div>
               <div>
                 <label className={labelClass}>Phone *</label>
-                <input type="tel" required className={inputClass} placeholder="(555) 555-5555" />
+                <input type="tel" name="phone" required className={inputClass} placeholder="(555) 555-5555" />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>Event Date *</label>
-                <input type="date" required className={inputClass} />
+                <input type="date" name="eventDate" required className={inputClass} />
               </div>
               <div>
                 <label className={labelClass}>Event Location *</label>
-                <input type="text" required className={inputClass} placeholder="Venue or address" />
+                <input type="text" name="eventLocation" required className={inputClass} placeholder="Venue or address" />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>Start Time *</label>
-                <select required className={selectClass} defaultValue="">
+                <select name="startTime" required className={selectClass} defaultValue="">
                   <option value="" disabled>Select start time</option>
                   {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
               <div>
                 <label className={labelClass}>End Time *</label>
-                <select required className={selectClass} defaultValue="">
+                <select name="endTime" required className={selectClass} defaultValue="">
                   <option value="" disabled>Select end time</option>
                   {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
@@ -123,14 +156,14 @@ const BookingSection = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>Event Type *</label>
-                <select required className={selectClass} defaultValue="">
+                <select name="eventType" required className={selectClass} defaultValue="">
                   <option value="" disabled>Select event type</option>
                   {eventTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
               <div>
                 <label className={labelClass}>Expected Guest Count</label>
-                <select className={selectClass} defaultValue="">
+                <select name="guestCount" className={selectClass} defaultValue="">
                   <option value="" disabled>Select range</option>
                   {guestRanges.map((g) => <option key={g} value={g}>{g}</option>)}
                 </select>
@@ -198,14 +231,15 @@ const BookingSection = () => {
 
             <div>
               <label className={labelClass}>Tell us more! We love the details.</label>
-              <textarea rows={4} className={inputClass} placeholder="Any special requests, themes, or details about your event..." />
+              <textarea name="details" rows={4} className={inputClass} placeholder="Any special requests, themes, or details about your event..." />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-colors"
+              disabled={isSubmitting}
+              className="w-full py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-colors disabled:opacity-50"
             >
-              Submit Booking Request
+              {isSubmitting ? "Submitting..." : "Submit Booking Request"}
             </button>
           </form>
         </motion.div>
