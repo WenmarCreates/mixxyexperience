@@ -74,7 +74,7 @@ const BookingSection = () => {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Webhook failed");
-      toast.success("Booking request submitted! We'll be in touch within one business day.");
+      toast.success("Thank you for submitting, our team will be in touch with you right away.");
     } catch {
       toast.error("Something went wrong. Please try again or contact us directly.");
     } finally {
@@ -99,7 +99,7 @@ const BookingSection = () => {
             Reserve Your Date
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">
-            Ready to make your event unforgettable? Fill out the form below and our team will be in touch within one business day.
+            Ready to make your event unforgettable? Fill out the form below and our team will be in touch with you right away.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
