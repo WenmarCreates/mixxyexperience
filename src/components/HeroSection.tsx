@@ -9,24 +9,24 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 bg-background/60" />
+      <div className="absolute inset-0 bg-foreground/50" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 mb-8"
         >
           <Sparkles size={16} className="text-accent" />
-          <span className="text-sm text-foreground/80">Atlanta's Premier Mobile Bar Experience</span>
+          <span className="text-sm text-white/80">Atlanta's Premier Mobile Bar Experience</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-2"
+          className="text-5xl md:text-7xl font-heading font-bold text-white mb-2"
         >
           Atlanta's Luxury Mobile
         </motion.h1>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           Elevate your celebration with our stunning Piaggio Ape tap truck. Six taps,
           professional bartenders, and unforgettable style for weddings, birthdays,
@@ -64,7 +64,7 @@ const HeroSection = () => {
           </a>
           <a
             href="#booking"
-            className="px-8 py-4 rounded-lg border border-foreground/30 text-foreground font-semibold text-base hover:bg-foreground/10 transition-all"
+            className="px-8 py-4 rounded-lg border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all"
           >
             Book Now
           </a>
