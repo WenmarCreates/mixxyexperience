@@ -21,10 +21,10 @@ const eventTypes = [
 const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-300 guests", "More than 300 guests"];
 
 const packageOptions = [
-  { value: "classic", label: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
-  { value: "plus", label: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
-  { value: "premium", label: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" },
-  { value: "pg", label: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
+  { value: "classic", label: "Mixxy Classic", displayLabel: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
+  { value: "plus", label: "Mixxy Plus", displayLabel: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
+  { value: "premium", label: "Mixxy Premium", displayLabel: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" },
+  { value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
 ];
 
 const addOnOptions = [
@@ -193,7 +193,7 @@ const BookingSection = () => {
                       className="mt-1 accent-primary"
                     />
                     <div>
-                      <p className="font-semibold text-foreground text-sm">{pkg.label}</p>
+                      <p className="font-semibold text-foreground text-sm">{pkg.displayLabel}</p>
                       <p className="text-xs text-muted-foreground">{pkg.sub}</p>
                     </div>
                   </label>
