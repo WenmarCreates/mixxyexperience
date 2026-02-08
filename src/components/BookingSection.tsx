@@ -107,10 +107,17 @@ const BookingSection = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook-test/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      const params = new URLSearchParams();
+      Object.entries(payload).forEach(([key, value]) => {
+        if (value !== undefined && value !== null) {
+          params.append(key, String(value));
+        }
+      });
+
+      const webhookUrl = `https://aismartlinx.app.n8n.cloud/webhook-test/40fe32f0-4267-47c4-8f69-e190b4ea9737?${params.toString()}`;
+
+      const res = await fetch(webhookUrl, {
+        method: "GET",
         signal: controller.signal,
         mode: "no-cors",
       });
