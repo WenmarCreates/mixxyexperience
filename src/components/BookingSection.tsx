@@ -265,19 +265,24 @@ const BookingSection = () => {
 
             {/* Extra Service Time – manual adjustment */}
             <div>
-              <label className={labelClass}>Extra Service Time ($150/hr)</label>
+              <label className={labelClass}>
+                Extra Service Time ($150/hr){calculatedExtraHours > 0 ? " *" : ""}
+              </label>
               <div className="flex items-center gap-3">
                 <select
                   className={selectClass}
                   value={extraHours}
                   onChange={(e) => setExtraHoursManual(Number(e.target.value))}
+                  required={calculatedExtraHours > 0}
                 >
-                  <option value={0}>No extra time</option>
-                  {[1, 2, 3, 4, 5, 6].map((h) => (
-                    <option key={h} value={h}>
-                      {h} hour{h > 1 ? "s" : ""} (+${h * 150})
-                    </option>
-                  ))}
+                  {calculatedExtraHours === 0 && <option value={0}>No extra time</option>}
+                  {Array.from({ length: 6 }, (_, i) => i + 1)
+                    .filter((h) => h >= calculatedExtraHours)
+                    .map((h) => (
+                      <option key={h} value={h}>
+                        {h} hour{h > 1 ? "s" : ""} (+${h * 150})
+                      </option>
+                    ))}
                 </select>
               </div>
               {extraHoursManual !== null && extraHoursManual !== calculatedExtraHours && calculatedExtraHours > 0 && (
