@@ -98,9 +98,10 @@ const BookingSection = () => {
       payload["Extra Service Time"] = extraHours;
     }
 
-    // Add each other add-on individually
-    otherAddOns.forEach((addon) => {
-      payload[addon.label] = selectedAddOns.includes(addon.value) ? "Yes" : "No";
+    // Add selected add-ons as numbered entries with their names
+    const selectedAddOnLabels = otherAddOns.filter((addon) => selectedAddOns.includes(addon.value));
+    selectedAddOnLabels.forEach((addon, index) => {
+      payload[`Add-Ons${index + 1}`] = addon.label;
     });
 
     try {
