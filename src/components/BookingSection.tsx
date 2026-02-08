@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
@@ -20,6 +20,8 @@ const eventTypes = [
 
 const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-300 guests", "More than 300 guests"];
 
+const INCLUDED_HOURS = 3;
+
 const packageOptions = [
   { value: "classic", label: "Mixxy Classic", displayLabel: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
   { value: "plus", label: "Mixxy Plus", displayLabel: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
@@ -27,16 +29,28 @@ const packageOptions = [
   { value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
 ];
 
-const addOnOptions = [
-  { value: "extra-time", label: "Extra Service Time", price: "$150/hr" },
+const otherAddOns = [
   { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
   { value: "custom-decor", label: "Custom Décor & Branding", price: "$75" },
   { value: "generator", label: "Generator Rental", price: "$100" },
 ];
 
+/** Convert "2:30 PM" → minutes since midnight */
+const parseTimeToMinutes = (time: string): number => {
+  const [timePart, period] = time.split(" ");
+  let [hours, minutes] = timePart.split(":").map(Number);
+  if (period === "PM" && hours !== 12) hours += 12;
+  if (period === "AM" && hours === 12) hours = 0;
+  return hours * 60 + minutes;
+};
+
 const BookingSection = () => {
   const [selectedPackage, setSelectedPackage] = useState("");
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [extraHoursManual, setExtraHoursManual] = useState<number | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleAddOn = (value: string) => {
     setSelectedAddOns((prev) =>
@@ -44,28 +58,50 @@ const BookingSection = () => {
     );
   };
 
-   const [isSubmitting, setIsSubmitting] = useState(false);
+  /** Auto-calculated extra hours based on event duration */
+  const calculatedExtraHours = useMemo(() => {
+    if (!startTime || !endTime) return 0;
+    const startMin = parseTimeToMinutes(startTime);
+    const endMin = parseTimeToMinutes(endTime);
+    const durationHours = (endMin - startMin) / 60;
+    if (durationHours <= INCLUDED_HOURS) return 0;
+    return Math.ceil(durationHours - INCLUDED_HOURS);
+  }, [startTime, endTime]);
+
+  /** Final extra hours: manual override if set, otherwise auto-calculated */
+  const extraHours = extraHoursManual !== null ? extraHoursManual : calculatedExtraHours;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    const payload = {
+
+    // Build payload with individual add-on fields
+    const payload: Record<string, unknown> = {
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
       email: formData.get("email"),
       phone: formData.get("phone"),
       eventDate: formData.get("eventDate"),
       eventLocation: formData.get("eventLocation"),
-      startTime: formData.get("startTime"),
-      endTime: formData.get("endTime"),
+      startTime,
+      endTime,
       eventType: formData.get("eventType"),
       guestCount: formData.get("guestCount"),
       package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
-      addOns: selectedAddOns.map((v) => addOnOptions.find((a) => a.value === v)?.label || v),
       details: formData.get("details"),
     };
+
+    // Add Extra Service Time with quantity
+    if (extraHours > 0) {
+      payload["Extra Service Time"] = extraHours;
+    }
+
+    // Add each other add-on individually
+    otherAddOns.forEach((addon) => {
+      payload[addon.label] = selectedAddOns.includes(addon.value) ? "Yes" : "No";
+    });
 
     try {
       const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook-test/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
@@ -139,14 +175,26 @@ const BookingSection = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass}>Start Time *</label>
-                <select name="startTime" required className={selectClass} defaultValue="">
+                <select
+                  name="startTime"
+                  required
+                  className={selectClass}
+                  value={startTime}
+                  onChange={(e) => { setStartTime(e.target.value); setExtraHoursManual(null); }}
+                >
                   <option value="" disabled>Select start time</option>
                   {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
               <div>
                 <label className={labelClass}>End Time *</label>
-                <select name="endTime" required className={selectClass} defaultValue="">
+                <select
+                  name="endTime"
+                  required
+                  className={selectClass}
+                  value={endTime}
+                  onChange={(e) => { setEndTime(e.target.value); setExtraHoursManual(null); }}
+                >
                   <option value="" disabled>Select end time</option>
                   {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
@@ -199,13 +247,51 @@ const BookingSection = () => {
                   </label>
                 ))}
               </div>
+
+              {/* Auto-calculated extra service time display */}
+              {selectedPackage && startTime && endTime && calculatedExtraHours > 0 && (
+                <div className="mt-3 p-3 rounded-lg border border-accent/30 bg-accent/5">
+                  <p className="text-sm text-foreground">
+                    ⏱ Your event is{" "}
+                    <strong>{((parseTimeToMinutes(endTime) - parseTimeToMinutes(startTime)) / 60).toFixed(1)} hours</strong>
+                    , which exceeds the included {INCLUDED_HOURS} hours.
+                  </p>
+                  <p className="text-sm text-accent font-semibold mt-1">
+                    Suggested extra service time: {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""} (+${calculatedExtraHours * 150})
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Add-Ons */}
+            {/* Extra Service Time – manual adjustment */}
+            <div>
+              <label className={labelClass}>Extra Service Time ($150/hr)</label>
+              <div className="flex items-center gap-3">
+                <select
+                  className={selectClass}
+                  value={extraHours}
+                  onChange={(e) => setExtraHoursManual(Number(e.target.value))}
+                >
+                  <option value={0}>No extra time</option>
+                  {[1, 2, 3, 4, 5, 6].map((h) => (
+                    <option key={h} value={h}>
+                      {h} hour{h > 1 ? "s" : ""} (+${h * 150})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {extraHoursManual !== null && extraHoursManual !== calculatedExtraHours && calculatedExtraHours > 0 && (
+                <p className="text-xs text-muted-foreground mt-1">
+                  Auto-suggested was {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""}. You've manually set {extraHoursManual}.
+                </p>
+              )}
+            </div>
+
+            {/* Other Add-Ons */}
             <div>
               <label className={labelClass}>Add-Ons (optional)</label>
               <div className="grid sm:grid-cols-2 gap-3">
-                {addOnOptions.map((addon) => (
+                {otherAddOns.map((addon) => (
                   <label
                     key={addon.value}
                     className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
