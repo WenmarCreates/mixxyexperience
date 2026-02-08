@@ -104,15 +104,25 @@ const BookingSection = () => {
     });
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook-test/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        signal: controller.signal,
+        mode: "no-cors",
       });
-      if (!res.ok) throw new Error("Webhook failed");
+
+      clearTimeout(timeoutId);
       toast.success("Booking request submitted! We'll be in touch within one business day.");
-    } catch {
-      toast.error("Something went wrong. Please try again or contact us directly.");
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        toast.error("Request timed out. Please try again or contact us directly.");
+      } else {
+        toast.error("Something went wrong. Please try again or contact us directly.");
+      }
     } finally {
       setIsSubmitting(false);
     }
