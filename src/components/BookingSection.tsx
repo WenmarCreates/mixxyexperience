@@ -62,8 +62,8 @@ const BookingSection = () => {
       endTime: formData.get("endTime"),
       eventType: formData.get("eventType"),
       guestCount: formData.get("guestCount"),
-      package: selectedPackage,
-      addOns: selectedAddOns,
+      package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
+      addOns: selectedAddOns.map((v) => addOnOptions.find((a) => a.value === v)?.label || v),
       details: formData.get("details"),
     };
 
