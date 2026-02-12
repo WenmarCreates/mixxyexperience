@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-card/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white/70 backdrop-blur-xl shadow-lg border-b border-white/20" : "bg-white shadow-sm"
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -24,10 +24,10 @@ const Navbar = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#" className={`text-sm font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}>
+          <a href="#" className="text-sm font-medium tracking-widest uppercase transition-colors text-foreground/80 hover:text-foreground">
             Home
           </a>
-          <a href="#pricing" className={`text-sm font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}>
+          <a href="#pricing" className="text-sm font-medium tracking-widest uppercase transition-colors text-foreground/80 hover:text-foreground">
             Pricing
           </a>
           <a
@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className={`md:hidden text-foreground`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
