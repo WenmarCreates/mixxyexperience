@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,8 +19,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className={`text-2xl font-heading font-bold ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-          Little<span className="text-gold-italic">Mixxy</span>
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="Little Mixxy Beverage Cart" className="h-12 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
