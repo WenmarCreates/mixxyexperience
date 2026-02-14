@@ -26,14 +26,14 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-lg md:text-xl text-white/80 mb-2 drop-shadow-md">
+          className="text-lg md:text-xl text-white/80 mb-2 drop-shadow-md" style={{ fontFamily: 'Montserrat', fontWeight: 200 }}>
           Welcome to
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl font-heading font-bold text-white mb-2 drop-shadow-lg">
+          className="text-5xl md:text-7xl font-heading text-white mb-2 drop-shadow-lg" style={{ fontFamily: 'Montserrat', fontWeight: 800 }}>
           LITTLE MIXXY
         </motion.h1>
         <motion.p
