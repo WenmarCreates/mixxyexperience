@@ -30,6 +30,13 @@ const packageOptions = [
   { value: "satellite", label: "Mini Mixxy Satellite Bar", displayLabel: "Mini Mixxy Satellite Bar – $150/hr", sub: "Portable luxury bar, 2 bartenders, min 2 hours" },
 ];
 
+const boothOptions = [
+  { value: "gold", label: "Gold 360 Booth", displayLabel: "Gold 360 Booth – $635", sub: "3 hrs, booth concierge, stanchions, unlimited 4K videos, custom template" },
+  { value: "platinum", label: "Platinum 360 Booth", displayLabel: "Platinum 360 Booth – $835", sub: "All Gold features + Hollywood red carpet, animated overlays, props" },
+  { value: "glamour", label: "Glamour Booth", displayLabel: "Glamour Booth – $999", sub: "Professional camera & lighting, glamour overlay, custom print sleeves" },
+  { value: "glamour-plus", label: "Glamour Booth+", displayLabel: "Glamour Booth+ – From $1,200", sub: "All Glamour features + enhanced luxury styling, VIP experience" },
+];
+
 const otherAddOns = [
   { value: "balloon-decor", label: "Balloon Décor", price: "$150" },
   { value: "champagne-wall", label: "Champagne Wall", price: "$150" },
@@ -51,6 +58,7 @@ const parseTimeToMinutes = (time: string): number => {
 const BookingSection = () => {
   const [selectedPackage, setSelectedPackage] = useState("");
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
+  const [selectedBooth, setSelectedBooth] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [extraHoursManual, setExtraHoursManual] = useState<number | null>(null);
@@ -95,6 +103,7 @@ const BookingSection = () => {
       guestCount: formData.get("guestCount"),
       package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
       details: formData.get("details"),
+      ...(selectedBooth && { "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth }),
     };
 
     // Add Extra Service Time with quantity
@@ -312,6 +321,45 @@ const BookingSection = () => {
                   Auto-suggested was {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""}. You've manually set {extraHoursManual}.
                 </p>
               )}
+            </div>
+
+            {/* 360 Photo Booth Packages */}
+            <div>
+              <label className={labelClass}>360 Photo Booth Package</label>
+              <div className="space-y-3">
+                {boothOptions.map((booth) => (
+                  <label
+                    key={booth.value}
+                    className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                      selectedBooth === booth.value
+                        ? "border-primary bg-primary/10"
+                        : "border-border bg-secondary hover:border-muted-foreground/30"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="booth"
+                      value={booth.value}
+                      checked={selectedBooth === booth.value}
+                      onChange={() => setSelectedBooth(booth.value)}
+                      className="mt-1 accent-primary"
+                    />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">{booth.displayLabel}</p>
+                      <p className="text-xs text-muted-foreground">{booth.sub}</p>
+                    </div>
+                  </label>
+                ))}
+                {selectedBooth && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBooth("")}
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+                  >
+                    Remove booth selection
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Other Add-Ons */}
