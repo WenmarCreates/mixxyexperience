@@ -12,10 +12,10 @@ const timeOptions = [
 
 
 const eventTypes = [
-"💒 Wedding Celebration", "🎂 Birthday Celebration", "💐 Bridal Shower",
-"👶 Baby Shower", "🏢 Corporate Event", "🎓 Graduation Party",
-"👨‍👩‍👧‍👦 Family Gathering", "🍽️ Rehearsal Dinner", "🎉 Private Party",
-"🎪 Festival or Market", "✨ Other"];
+"Wedding Celebration", "Birthday Celebration", "Bridal Shower",
+"Baby Shower", "Corporate Event", "Graduation Party",
+"Family Gathering", "Rehearsal Dinner", "Private Party",
+"Festival or Market", "Other"];
 
 
 const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-300 guests", "More than 300 guests"];
