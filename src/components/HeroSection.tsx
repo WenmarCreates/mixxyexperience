@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl font-heading text-white mb-2 drop-shadow-lg" style={{ fontFamily: 'Montserrat', fontWeight: 550 }}>
+          className="text-5xl md:text-7xl text-white mb-2 drop-shadow-lg" style={{ fontFamily: "'Fiona Pro', serif", fontWeight: 700 }}>
           LITTLE MIXXY
         </motion.h1>
         <motion.p
