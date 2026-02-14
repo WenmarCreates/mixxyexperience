@@ -3,58 +3,66 @@ import { motion } from "framer-motion";
 
 const packages = [
   {
+    name: "Mixxy PG",
+    price: "$600",
+    description: "Perfect for family-friendly events, baby showers, school functions, and daytime celebrations.",
+    features: [
+      "Choose 4–6 premium non-alcoholic beverages (mocktails, lemonades, iced teas, sodas)",
+      "3 hours of service",
+      "2 Tap-Tenders",
+      "Drinkware, napkins, straws, ice & garnishes",
+      "Full setup & breakdown",
+      "Luxury bar décor & custom drink signage",
+      "Insurance included",
+      "Service within a 30-mile radius",
+    ],
+  },
+  {
     name: "Mixxy Classic",
     popular: true,
     price: "$775",
-    description: "Perfect for gatherings, cocktail hours, weddings, birthdays and casual celebrations.",
+    description: "4-Tap Beverage Experience – Perfect for bridal showers, birthdays, baby showers, and intimate gatherings.",
     features: [
-      "Any 4 beer, wine, prosecco, or champagne selections",
+      "6-tap display (4 active taps)",
+      "Any combination of four: beer, wine, champagne, prosecco",
       "3 hours of service",
       "1 Licensed bartender + 1 Tap-Tender",
       "Drinkware, napkins, straws, ice & garnishes",
       "Full setup & breakdown",
-      "6-tap display (4 active)",
-      "Insurance & 30-mile radius service",
+      "Luxury bar décor & custom drink signage",
+      "Insurance included",
+      "Service within a 30-mile radius",
     ],
   },
   {
     name: "Mixxy Plus",
     price: "$875",
-    description: "Ideal for weddings, cocktail hours, bridal showers, milestone birthdays, anniversaries.",
+    description: "4-Tap Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties.",
     features: [
-      "Everything in Mixxy Classic",
-      "Swap up to 2 taps for cocktails (ex: margaritas, mimosas)",
-      "Up to 5 signature cocktail options",
-      "Personalized signage with your cocktail menu",
+      "6-tap display (4 active taps)",
+      "Any combination of four: beer, wine, champagne, prosecco, cocktails",
+      "3 hours of service",
+      "1 Licensed bartender + 1 Tap-Tender",
+      "Drinkware, napkins, straws, ice & garnishes",
+      "Full setup & breakdown",
+      "Luxury bar décor & custom drink signage",
+      "Insurance included",
+      "Service within a 30-mile radius",
     ],
   },
   {
     name: "Mixxy Premium",
     price: "$975",
-    description: "Full 6-tap experience for weddings, galas, corporate events, upscale celebrations.",
+    description: "Full 6-Tap Experience – Designed for weddings, galas, luxury events, and corporate activations.",
     features: [
-      "6 taps of your choice (beer, wine, cocktails, prosecco)",
+      "Any combination of six: beer, wine, champagne, prosecco, cocktails",
       "3 hours of service",
       "2 Licensed bartenders + 1 Tap-Tender",
       "Drinkware, napkins, straws, ice & garnishes",
-      "Full Setup & Breakdown",
-      "Custom cocktails welcome",
-      "Premium cocktail bar styling & decor",
-      "Signature cocktail menu signage",
-      "Insurance & 30-mile radius service",
-    ],
-  },
-  {
-    name: "Mixxy PG",
-    price: "$600",
-    description: "Non-alcoholic package for family-friendly events, baby showers, school functions.",
-    features: [
-      "Any 4–6 taps of non-alcohol drinks (mocktails, lemonades, iced teas, sodas)",
-      "3 hours of service",
-      "2 Tap-Tenders",
-      "Drinkware, napkins, straws, ice & garnishes",
-      "Themed décor (kids parties option available)",
-      "Full setup and breakdown",
+      "Full setup & breakdown",
+      "Luxury bar décor & custom drink signage",
+      "Insurance included",
+      "Service within a 30-mile radius",
     ],
   },
 ];
@@ -62,7 +70,7 @@ const packages = [
 const addOns = [
   { icon: Clock, name: "Extra Service Time", description: "Additional hours beyond the base 3-hour package.", price: "$150/hr" },
   { icon: Truck, name: "Concierge Alcohol Pickup", description: "We handle picking up your alcohol for the event.", price: "$50" },
-  { icon: Palette, name: "Custom Décor & Branding", description: "Personalized décor and branding for your event.", price: "$75" },
+  { icon: Palette, name: "Balloon Décor", description: "Customized to fit any theme.", price: "$150" },
   { icon: Zap, name: "Generator Rental", description: "Power source for venues without electricity.", price: "$100" },
 ];
 
@@ -139,7 +147,7 @@ const PricingSection = () => {
             <strong className="text-foreground">Service Area:</strong> Includes 30-mile radius from Midtown Atlanta. +$1.50/mile for additional distance.
           </p>
           <p className="text-sm text-muted-foreground">
-            Having a smaller party? Call us at{" "}
+            Having a smaller party of 40 guests or fewer, or a larger party of 300 or more? Call us at{" "}
             <a href="tel:6784621651" className="text-primary hover:underline">(678) 462-1651</a>{" "}
             for custom pricing.
           </p>
