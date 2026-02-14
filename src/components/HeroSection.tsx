@@ -22,13 +22,19 @@ const HeroSection = () => {
           <span className="text-sm text-white/80">Atlanta's Premier Mobile Bar Experience</span>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-lg md:text-xl text-white/80 mb-2 drop-shadow-md">
+          Welcome to
+        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-5xl md:text-7xl font-heading font-bold text-white mb-2 drop-shadow-lg">
           LITTLE MIXXY
-
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
