@@ -27,7 +27,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-5xl md:text-7xl font-heading font-bold text-white mb-2 drop-shadow-lg">
-          Welcome to LITTLE MIXXY
+          LITTLE MIXXY
 
         </motion.h1>
         <motion.p
