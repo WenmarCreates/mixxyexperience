@@ -40,7 +40,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-5xl md:text-7xl text-gold-italic mb-8 drop-shadow-lg" style={{ fontFamily: 'Montserrat', fontWeight: 300 }}>
+          className="text-3xl md:text-5xl text-accent mb-8 drop-shadow-lg" style={{ fontFamily: 'Montserrat', fontWeight: 300 }}>
           Atlanta's Luxury Mobile Beverage Tap Cart
 
         </motion.p>
