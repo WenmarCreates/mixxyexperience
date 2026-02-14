@@ -19,28 +19,28 @@ const HeroSection = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/10 mb-8">
 
           <Sparkles size={16} className="text-accent" />
-          <span className="text-sm text-white/80" style={{ fontFamily: "'Fiona', serif" }}>Atlanta's Premier Mobile Bar Experience</span>
+          <span className="text-sm text-white/80" style={{ fontFamily: "'Montserrat', sans-serif" }}>Atlanta's Premier Mobile Bar Experience</span>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-lg md:text-xl text-white/80 mb-2 drop-shadow-md" style={{ fontFamily: "'Fiona', serif", fontWeight: 400 }}>
+          className="text-lg md:text-xl text-white/80 mb-2 drop-shadow-md" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
           Welcome to
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-5xl md:text-7xl text-white mb-2 drop-shadow-lg" style={{ fontFamily: "'Fiona', serif", fontWeight: 700 }}>
+          className="text-5xl md:text-7xl text-white mb-2 drop-shadow-lg" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>
           LITTLE MIXXY
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-3xl md:text-5xl text-accent mb-8 drop-shadow-lg" style={{ fontFamily: "'Fiona', serif", fontWeight: 400 }}>
+          className="text-3xl md:text-5xl text-accent mb-8 drop-shadow-lg" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
           Atlanta's Luxury Mobile Beverage Tap Cart
 
         </motion.p>
@@ -49,7 +49,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md" style={{ fontFamily: "'Fiona', serif", fontWeight: 400 }}>
+          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
           From Italian-style tap carts and satellite bars to champagne walls, photography, and curated guest experiences, we create stylish, unforgettable moments for weddings, corporate events, private celebrations, and more.
  Let's Get Mixxy!
 
@@ -66,13 +66,13 @@ const HeroSection = () => {
             href="#pricing"
             className="px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all inline-flex items-center gap-2">
 
-            <span style={{ fontFamily: "'Fiona', serif" }}>View Pricing</span> <ArrowRight size={18} />
+            <span style={{ fontFamily: "'Montserrat', sans-serif" }}>View Pricing</span> <ArrowRight size={18} />
           </a>
           <a
             href="#booking"
             className="px-8 py-4 rounded-lg border border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all">
 
-            <span style={{ fontFamily: "'Fiona', serif" }}>Book Now</span>
+            <span style={{ fontFamily: "'Montserrat', sans-serif" }}>Book Now</span>
           </a>
         </motion.div>
       </div>
