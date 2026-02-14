@@ -23,16 +23,20 @@ const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-
 const INCLUDED_HOURS = 3;
 
 const packageOptions = [
+  { value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
   { value: "classic", label: "Mixxy Classic", displayLabel: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
   { value: "plus", label: "Mixxy Plus", displayLabel: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
   { value: "premium", label: "Mixxy Premium", displayLabel: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" },
-  { value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
+  { value: "satellite", label: "Mini Mixxy Satellite Bar", displayLabel: "Mini Mixxy Satellite Bar – $150/hr", sub: "Portable luxury bar, 2 bartenders, min 2 hours" },
 ];
 
 const otherAddOns = [
+  { value: "balloon-decor", label: "Balloon Décor", price: "$150" },
+  { value: "champagne-wall", label: "Champagne Wall", price: "$150" },
+  { value: "event-photography", label: "Event Photography", price: "From $225" },
   { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
-  { value: "custom-decor", label: "Custom Décor & Branding", price: "$75" },
   { value: "generator", label: "Generator Rental", price: "$100" },
+  { value: "extra-time", label: "Extra Service Time", price: "$150/hr" },
 ];
 
 /** Convert "2:30 PM" → minutes since midnight */
