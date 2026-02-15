@@ -273,7 +273,7 @@ const BookingSection = () => {
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{pkg.displayLabel}</p>
-                      <p className="text-xs text-muted-foreground">{pkg.sub}</p>
+                      
                     </div>
                   </label>
                 )}
