@@ -37,7 +37,7 @@ const packages = [
 {
   name: "Mixxy Plus",
   price: "$875",
-  description: "4-Tap Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties.",
+  description: "4-Tap Beverage Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties, and apartment resident events.",
   features: [
   "6-tap display (4 active taps)",
   "Any combination of four: beer, wine, champagne, prosecco, cocktails",
