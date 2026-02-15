@@ -346,7 +346,7 @@ const BookingSection = () => {
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{booth.displayLabel}</p>
-                      <p className="text-xs text-muted-foreground">{booth.sub}</p>
+                      
                     </div>
                   </label>
                 )}
