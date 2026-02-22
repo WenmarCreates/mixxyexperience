@@ -7,7 +7,7 @@ const packages = [
   price: "$600",
   description: "Perfect for family-friendly events, baby showers, school functions, and daytime celebrations.",
   features: [
-  "Choose 4–6 premium non-alcoholic beverages (mocktails, lemonades, iced teas, sodas)",
+  "Choose 4-6 premium non alcoholic beverages (signature mocktails, lemonades, cold teas, sodas)",
   "3 hours of service",
   "2 Tap-Tenders",
   "Drinkware, napkins, straws, ice & garnishes",
