@@ -137,7 +137,7 @@ const BookingSection = () => {
       });
 
       clearTimeout(timeoutId);
-      toast.success("Booking request submitted! We'll be in touch within one business day.");
+      toast.success("Thank you for reaching out to Little Mixxy! We've received your booking request, and our team will follow up shortly. For urgent bookings, feel free to call us directly at 678-462-1651.");
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
         toast.error("Request timed out. Please try again or contact us directly.");
