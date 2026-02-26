@@ -87,7 +87,8 @@ const BookingSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     // Build payload with individual add-on fields
     const payload: Record<string, unknown> = {
@@ -138,6 +139,13 @@ const BookingSection = () => {
 
       clearTimeout(timeoutId);
       toast.success("Thank you for reaching out to Little Mixxy! We've received your booking request, and our team will follow up shortly. For urgent bookings, feel free to call us directly at 678-462-1651.");
+      form.reset();
+      setSelectedPackage("");
+      setSelectedAddOns([]);
+      setSelectedBooth("");
+      setStartTime("");
+      setEndTime("");
+      setExtraHoursManual(null);
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
         toast.error("Request timed out. Please try again or contact us directly.");
