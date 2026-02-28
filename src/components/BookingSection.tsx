@@ -131,7 +131,7 @@ const BookingSection = () => {
         }
       });
 
-      const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook-test/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
+      const res = await fetch("https://aismartlinx.app.n8n.cloud/webhook/40fe32f0-4267-47c4-8f69-e190b4ea9737", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formBody.toString(),
