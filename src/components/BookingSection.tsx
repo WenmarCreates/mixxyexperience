@@ -26,8 +26,9 @@ const packageOptions = [
 { value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
 { value: "classic", label: "Mixxy Classic", displayLabel: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
 { value: "plus", label: "Mixxy Plus", displayLabel: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
-{ value: "premium", label: "Mixxy Premium", displayLabel: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" },
-{ value: "satellite", label: "Mini Mixxy Satellite Bar", displayLabel: "Mini Mixxy Satellite Bar – $150/hr", sub: "Portable luxury bar, 2 bartenders, min 2 hours" }];
+{ value: "premium", label: "Mixxy Premium", displayLabel: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" }];
+
+const satelliteOption = { value: "satellite", label: "Mini Mixxy Satellite Bar", displayLabel: "Mini Mixxy Satellite Bar – $150/hr", sub: "Portable luxury bar, 2 bartenders, min 2 hours" };
 
 
 const boothOptions = [
@@ -42,8 +43,7 @@ const otherAddOns = [
 { value: "champagne-wall", label: "Champagne Wall", price: "$150" },
 { value: "event-photography", label: "Event Photography", price: "From $225" },
 { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
-{ value: "generator", label: "Generator Rental", price: "$100" },
-{ value: "extra-time", label: "Extra Service Time", price: "$150/hr" }];
+{ value: "generator", label: "Generator Rental", price: "$100" }];
 
 
 /** Convert "2:30 PM" → minutes since midnight */
@@ -57,6 +57,7 @@ const parseTimeToMinutes = (time: string): number => {
 
 const BookingSection = () => {
   const [selectedPackage, setSelectedPackage] = useState("");
+  const [selectedSatellite, setSelectedSatellite] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [selectedBooth, setSelectedBooth] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -103,6 +104,7 @@ const BookingSection = () => {
       eventType: formData.get("eventType"),
       guestCount: formData.get("guestCount"),
       package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
+      ...(selectedSatellite && { "Mini Mixxy Satellite Bar": "Yes" }),
       details: formData.get("details"),
       ...(selectedBooth && { "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth })
     };
@@ -141,6 +143,7 @@ const BookingSection = () => {
       toast.success("Thank you for reaching out to Little Mixxy! We've received your booking request, and our team will follow up shortly. For urgent bookings, feel free to call us directly at 678-462-1651.");
       form.reset();
       setSelectedPackage("");
+      setSelectedSatellite(false);
       setSelectedAddOns([]);
       setSelectedBooth("");
       setStartTime("");
@@ -287,7 +290,23 @@ const BookingSection = () => {
                 )}
               </div>
 
-              {/* Auto-calculated extra service time display */}
+              {/* Mini Mixxy Satellite Bar – can be added alongside any package */}
+              <label
+                className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all mt-3 ${
+                selectedSatellite ?
+                "border-primary bg-primary/10" :
+                "border-border bg-secondary hover:border-muted-foreground/30"}`
+                }>
+                <input
+                  type="checkbox"
+                  checked={selectedSatellite}
+                  onChange={() => setSelectedSatellite(!selectedSatellite)}
+                  className="mt-1 accent-primary" />
+                <div>
+                  <p className="font-semibold text-foreground text-sm">{satelliteOption.displayLabel}</p>
+                  <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
+                </div>
+              </label>
               {selectedPackage && startTime && endTime && calculatedExtraHours > 0 &&
               <div className="mt-3 p-3 rounded-lg border border-accent/30 bg-accent/5">
                   <p className="text-sm text-foreground">
