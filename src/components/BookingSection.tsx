@@ -86,7 +86,7 @@ const satelliteOption = {
   value: "satellite",
   label: "Mini Mixxy",
   displayLabel: "Mini Mixxy – $150/hr",
-  sub: "Portable luxury bar, 2 bartenders, min 2 hours",
+  sub: "Portable luxury bar • 2 bartenders • 2-hour minimum",
 };
 
 const boothOptions = [
