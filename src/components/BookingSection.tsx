@@ -85,7 +85,7 @@ const packageOptions = [
 const satelliteOption = {
   value: "satellite",
   label: "Mini Mixxy",
-  displayLabel: "Mini Mixxy Satellite Bar – $150/hr",
+  displayLabel: "Mini Mixxy – $150/hr",
   sub: "Portable luxury bar, 2 bartenders, min 2 hours",
 };
 
@@ -162,6 +162,12 @@ const BookingSection = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!selectedPackage && !selectedSatellite) {
+      toast.error("Please select a package or Mini Mixxy to continue.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const form = e.currentTarget;
@@ -179,7 +185,9 @@ const BookingSection = () => {
       endTime,
       eventType: formData.get("eventType"),
       guestCount: formData.get("guestCount"),
-      package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
+      ...(selectedPackage && {
+        package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
+      }),
       ...(selectedSatellite && { "Mini Mixxy": "Yes" }),
       details: formData.get("details"),
       ...(selectedBooth && {
@@ -380,7 +388,7 @@ const BookingSection = () => {
 
             {/* Package Selection */}
             <div>
-              <label className={labelClass}>Select a Package *</label>
+              <label className={labelClass}>Select a Package</label>
               <div className="space-y-3">
                 {packageOptions.map((pkg) => (
                   <label
@@ -395,7 +403,6 @@ const BookingSection = () => {
                       type="radio"
                       name="package"
                       value={pkg.value}
-                      required
                       checked={selectedPackage === pkg.value}
                       onChange={() => setSelectedPackage(pkg.value)}
                       className="mt-1 accent-primary"
@@ -406,9 +413,18 @@ const BookingSection = () => {
                     </div>
                   </label>
                 ))}
+                {selectedPackage && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPackage("")}
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+                  >
+                    Remove package selection
+                  </button>
+                )}
               </div>
 
-              {/* Mini Mixxy – can be added alongside any package */}
+              {/* Mini Mixxy – can be added alongside any package, or selected on its own */}
               <div
                 onClick={() => setSelectedSatellite(!selectedSatellite)}
                 className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all mt-3 ${
