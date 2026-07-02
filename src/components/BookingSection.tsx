@@ -85,7 +85,7 @@ const packageOptions = [
 const satelliteOption = {
   value: "satellite",
   label: "Mini Mixxy",
-  displayLabel: "Mini Mixxy – $150/hr",
+  displayLabel: "Mini Mixxy Satellite Bar – $150/hr",
   sub: "Portable luxury bar, 2 bartenders, min 2 hours",
 };
 
