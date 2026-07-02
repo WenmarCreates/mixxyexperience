@@ -3,48 +3,126 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 const timeOptions = [
-"8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM",
-"11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM",
-"2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM",
-"5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM",
-"8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM", "10:30 PM",
-"11:00 PM", "11:30 PM"];
-
+  "8:00 AM",
+  "8:30 AM",
+  "9:00 AM",
+  "9:30 AM",
+  "10:00 AM",
+  "10:30 AM",
+  "11:00 AM",
+  "11:30 AM",
+  "12:00 PM",
+  "12:30 PM",
+  "1:00 PM",
+  "1:30 PM",
+  "2:00 PM",
+  "2:30 PM",
+  "3:00 PM",
+  "3:30 PM",
+  "4:00 PM",
+  "4:30 PM",
+  "5:00 PM",
+  "5:30 PM",
+  "6:00 PM",
+  "6:30 PM",
+  "7:00 PM",
+  "7:30 PM",
+  "8:00 PM",
+  "8:30 PM",
+  "9:00 PM",
+  "9:30 PM",
+  "10:00 PM",
+  "10:30 PM",
+  "11:00 PM",
+  "11:30 PM",
+];
 
 const eventTypes = [
-"Wedding Celebration", "Birthday Celebration", "Bridal Shower",
-"Baby Shower", "Corporate Event", "Graduation Party",
-"Family Gathering", "Rehearsal Dinner", "Private Party",
-"Festival or Market", "Other"];
-
+  "Wedding Celebration",
+  "Birthday Celebration",
+  "Bridal Shower",
+  "Baby Shower",
+  "Corporate Event",
+  "Graduation Party",
+  "Family Gathering",
+  "Rehearsal Dinner",
+  "Private Party",
+  "Festival or Market",
+  "Other",
+];
 
 const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-300 guests", "More than 300 guests"];
 
 const INCLUDED_HOURS = 3;
 
 const packageOptions = [
-{ value: "pg", label: "Mixxy PG", displayLabel: "Mixxy PG – $600", sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas" },
-{ value: "classic", label: "Mixxy Classic", displayLabel: "Mixxy Classic – $775", sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender" },
-{ value: "plus", label: "Mixxy Plus", displayLabel: "Mixxy Plus – $875", sub: "Classic + swap up to 2 taps for cocktails, personalized signage" },
-{ value: "premium", label: "Mixxy Premium", displayLabel: "Mixxy Premium – $975", sub: "Full 6-tap experience, 2 bartenders, premium styling & décor" }];
+  {
+    value: "pg",
+    label: "Mixxy PG",
+    displayLabel: "Mixxy PG – $600",
+    sub: "Non-alcoholic: mocktails, lemonades, iced teas, sodas",
+  },
+  {
+    value: "classic",
+    label: "Mixxy Classic",
+    displayLabel: "Mixxy Classic – $775",
+    sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender",
+  },
+  {
+    value: "plus",
+    label: "Mixxy Plus",
+    displayLabel: "Mixxy Plus – $875",
+    sub: "Classic + swap up to 2 taps for cocktails, personalized signage",
+  },
+  {
+    value: "premium",
+    label: "Mixxy Premium",
+    displayLabel: "Mixxy Premium – $975",
+    sub: "Full 6-tap experience, 2 bartenders, premium styling & décor",
+  },
+];
 
-const satelliteOption = { value: "satellite", label: "Mini Mixxy Satellite Bar", displayLabel: "Mini Mixxy Satellite Bar – $150/hr", sub: "Portable luxury bar, 2 bartenders, min 2 hours" };
-
+const satelliteOption = {
+  value: "satellite",
+  label: "Mini Mixxy",
+  displayLabel: "Mini Mixxy – $150/hr",
+  sub: "Portable luxury bar, 2 bartenders, min 2 hours",
+};
 
 const boothOptions = [
-{ value: "gold", label: "Gold 360 Booth", displayLabel: "Gold 360 Booth – $635", sub: "3 hrs, booth concierge, stanchions, unlimited 4K videos, custom template" },
-{ value: "platinum", label: "Platinum 360 Booth", displayLabel: "Platinum 360 Booth – $835", sub: "All Gold features + Hollywood red carpet, animated overlays, props" },
-{ value: "glamour", label: "Glamour Booth", displayLabel: "Glamour Booth – $999", sub: "Professional camera & lighting, glamour overlay, custom print sleeves" },
-{ value: "glamour-plus", label: "Glamour Booth+", displayLabel: "Glamour Booth+ – From $1,200", sub: "All Glamour features + enhanced luxury styling, VIP experience" }];
-
+  {
+    value: "gold",
+    label: "Gold 360 Booth",
+    displayLabel: "Gold 360 Booth – $635",
+    sub: "3 hrs, booth concierge, stanchions, unlimited 4K videos, custom template",
+  },
+  {
+    value: "platinum",
+    label: "Platinum 360 Booth",
+    displayLabel: "Platinum 360 Booth – $835",
+    sub: "All Gold features + Hollywood red carpet, animated overlays, props",
+  },
+  {
+    value: "glamour",
+    label: "Glamour Booth",
+    displayLabel: "Glamour Booth – $999",
+    sub: "Professional camera & lighting, glamour overlay, custom print sleeves",
+  },
+  {
+    value: "glamour-plus",
+    label: "Glamour Booth+",
+    displayLabel: "Glamour Booth+ – From $1,200",
+    sub: "All Glamour features + enhanced luxury styling, VIP experience",
+  },
+];
 
 const otherAddOns = [
-{ value: "balloon-decor", label: "Balloon Décor", price: "$150" },
-{ value: "champagne-wall", label: "Champagne Wall", price: "$150" },
-{ value: "event-photography", label: "Event Photography", price: "From $225" },
-{ value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
-{ value: "generator", label: "Generator Rental", price: "$100" }];
-
+  { value: "balloon-decor", label: "Balloon Décor", price: "$150" },
+  { value: "champagne-wall", label: "Champagne Wall", price: "$150" },
+  { value: "event-photography", label: "Event Photography", price: "From $225" },
+  { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
+  { value: "generator", label: "Generator Rental", price: "$100" },
+];
 
 /** Convert "2:30 PM" → minutes since midnight */
 const parseTimeToMinutes = (time: string): number => {
@@ -56,7 +134,7 @@ const parseTimeToMinutes = (time: string): number => {
 };
 
 const BookingSection = () => {
-  const [selectedPackage, setSelectedPackage] = useState("");
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
   const [selectedSatellite, setSelectedSatellite] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [selectedBooth, setSelectedBooth] = useState("");
@@ -66,9 +144,7 @@ const BookingSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleAddOn = (value: string) => {
-    setSelectedAddOns((prev) =>
-    prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-    );
+    setSelectedAddOns((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
   };
 
   /** Auto-calculated extra hours based on event duration */
@@ -104,9 +180,11 @@ const BookingSection = () => {
       eventType: formData.get("eventType"),
       guestCount: formData.get("guestCount"),
       package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
-      ...(selectedSatellite && { "Mini Mixxy Satellite Bar": "Yes" }),
+      ...(selectedSatellite && { "Mini Mixxy": "Yes" }),
       details: formData.get("details"),
-      ...(selectedBooth && { "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth })
+      ...(selectedBooth && {
+        "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth,
+      }),
     };
 
     // Add Extra Service Time with quantity
@@ -136,11 +214,13 @@ const BookingSection = () => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formBody.toString(),
         signal: controller.signal,
-        mode: "no-cors"
+        mode: "no-cors",
       });
 
       clearTimeout(timeoutId);
-      toast.success("Thank you for reaching out to Little Mixxy! We've received your booking request, and our team will follow up shortly. For urgent bookings, feel free to call us directly at 678-462-1651.");
+      toast.success(
+        "Thank you for reaching out to Little Mixxy! We've received your booking request, and our team will follow up shortly. For urgent bookings, feel free to call us directly at 678-462-1651.",
+      );
       form.reset();
       setSelectedPackage("");
       setSelectedSatellite(false);
@@ -160,7 +240,8 @@ const BookingSection = () => {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-body text-sm";
+  const inputClass =
+    "w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-body text-sm";
   const labelClass = "block text-sm font-medium text-foreground mb-1.5";
   const selectClass = `${inputClass} appearance-none`;
 
@@ -171,13 +252,14 @@ const BookingSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}>
-
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-foreground mb-4">Reserve Your Little Mixxy Experience
-
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center text-foreground mb-4">
+            Reserve Your Little Mixxy Experience
           </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">Ready to get Mixxy? Tell us about your event below and our team will be in touch with you within one business day.
-
+          <p className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">
+            Ready to get Mixxy? Tell us about your event below and our team will be in touch with you within one
+            business day.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -210,7 +292,13 @@ const BookingSection = () => {
               </div>
               <div>
                 <label className={labelClass}>Event Location *</label>
-                <input type="text" name="eventLocation" required className={inputClass} placeholder="Venue or address" />
+                <input
+                  type="text"
+                  name="eventLocation"
+                  required
+                  className={inputClass}
+                  placeholder="Venue or address"
+                />
               </div>
             </div>
 
@@ -222,10 +310,19 @@ const BookingSection = () => {
                   required
                   className={selectClass}
                   value={startTime}
-                  onChange={(e) => {setStartTime(e.target.value);setExtraHoursManual(null);}}>
-
-                  <option value="" disabled>Select start time</option>
-                  {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
+                  onChange={(e) => {
+                    setStartTime(e.target.value);
+                    setExtraHoursManual(null);
+                  }}
+                >
+                  <option value="" disabled>
+                    Select start time
+                  </option>
+                  {timeOptions.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -235,10 +332,19 @@ const BookingSection = () => {
                   required
                   className={selectClass}
                   value={endTime}
-                  onChange={(e) => {setEndTime(e.target.value);setExtraHoursManual(null);}}>
-
-                  <option value="" disabled>Select end time</option>
-                  {timeOptions.map((t) => <option key={t} value={t}>{t}</option>)}
+                  onChange={(e) => {
+                    setEndTime(e.target.value);
+                    setExtraHoursManual(null);
+                  }}
+                >
+                  <option value="" disabled>
+                    Select end time
+                  </option>
+                  {timeOptions.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -247,15 +353,27 @@ const BookingSection = () => {
               <div>
                 <label className={labelClass}>Event Type *</label>
                 <select name="eventType" required className={selectClass} defaultValue="">
-                  <option value="" disabled>Select event type</option>
-                  {eventTypes.map((t) => <option key={t} value={t}>{t}</option>)}
+                  <option value="" disabled>
+                    Select event type
+                  </option>
+                  {eventTypes.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label className={labelClass}>Expected Guest Count</label>
                 <select name="guestCount" className={selectClass} defaultValue="">
-                  <option value="" disabled>Select range</option>
-                  {guestRanges.map((g) => <option key={g} value={g}>{g}</option>)}
+                  <option value="" disabled>
+                    Select range
+                  </option>
+                  {guestRanges.map((g) => (
+                    <option key={g} value={g}>
+                      {g}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -264,41 +382,44 @@ const BookingSection = () => {
             <div>
               <label className={labelClass}>Select a Package *</label>
               <div className="space-y-3">
-                {packageOptions.map((pkg) =>
-                <label
-                  key={pkg.value}
-                  className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
-                  selectedPackage === pkg.value ?
-                  "border-primary bg-primary/10" :
-                  "border-border bg-secondary hover:border-muted-foreground/30"}`
-                  }>
-
+                {packageOptions.map((pkg) => (
+                  <label
+                    key={pkg.value}
+                    className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                      selectedPackage === pkg.value
+                        ? "border-primary bg-primary/10"
+                        : "border-border bg-secondary hover:border-muted-foreground/30"
+                    }`}
+                  >
                     <input
-                    type="radio"
-                    name="package"
-                    value={pkg.value}
-                    required
-                    checked={selectedPackage === pkg.value}
-                    onChange={() => setSelectedPackage(pkg.value)}
-                    className="mt-1 accent-primary" />
+                      type="radio"
+                      name="package"
+                      value={pkg.value}
+                      required
+                      checked={selectedPackage === pkg.value}
+                      onChange={() => setSelectedPackage(pkg.value)}
+                      className="mt-1 accent-primary"
+                    />
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{pkg.displayLabel}</p>
-                      
                     </div>
                   </label>
-                )}
+                ))}
               </div>
 
-              {/* Mini Mixxy Satellite Bar – can be added alongside any package */}
+              {/* Mini Mixxy – can be added alongside any package */}
               <div
                 onClick={() => setSelectedSatellite(!selectedSatellite)}
                 className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all mt-3 ${
-                selectedSatellite ?
-                "border-primary bg-primary/10 ring-2 ring-primary/30" :
-                "border-border bg-secondary hover:border-muted-foreground/30"}`
-                }>
-                <div className={`mt-1 w-4 h-4 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${selectedSatellite ? "bg-primary border-primary" : "border-muted-foreground/40"}`}>
+                  selectedSatellite
+                    ? "border-primary bg-primary/10 ring-2 ring-primary/30"
+                    : "border-border bg-secondary hover:border-muted-foreground/30"
+                }`}
+              >
+                <div
+                  className={`mt-1 w-4 h-4 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${selectedSatellite ? "bg-primary border-primary" : "border-muted-foreground/40"}`}
+                >
                   {selectedSatellite && <span className="text-primary-foreground text-xs font-bold">✓</span>}
                 </div>
                 <div>
@@ -306,85 +427,87 @@ const BookingSection = () => {
                   <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
                 </div>
               </div>
-              {selectedPackage && startTime && endTime && calculatedExtraHours > 0 &&
-              <div className="mt-3 p-3 rounded-lg border border-accent/30 bg-accent/5">
+              {selectedPackage && startTime && endTime && calculatedExtraHours > 0 && (
+                <div className="mt-3 p-3 rounded-lg border border-accent/30 bg-accent/5">
                   <p className="text-sm text-foreground">
                     ⏱ Your event is{" "}
-                    <strong>{((parseTimeToMinutes(endTime) - parseTimeToMinutes(startTime)) / 60).toFixed(1)} hours</strong>
+                    <strong>
+                      {((parseTimeToMinutes(endTime) - parseTimeToMinutes(startTime)) / 60).toFixed(1)} hours
+                    </strong>
                     , which exceeds the included {INCLUDED_HOURS} hours.
                   </p>
                   <p className="text-sm text-accent font-semibold mt-1">
-                    Suggested extra service time: {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""} (+${calculatedExtraHours * 150})
+                    Suggested extra service time: {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""} (+$
+                    {calculatedExtraHours * 150})
                   </p>
                 </div>
-              }
+              )}
             </div>
 
             {/* Extra Service Time – manual adjustment */}
             <div>
-              <label className={labelClass}>
-                Extra Service Time ($150/hr){calculatedExtraHours > 0 ? " *" : ""}
-              </label>
+              <label className={labelClass}>Extra Service Time ($150/hr){calculatedExtraHours > 0 ? " *" : ""}</label>
               <div className="flex items-center gap-3">
                 <select
                   className={selectClass}
                   value={extraHours}
                   onChange={(e) => setExtraHoursManual(Number(e.target.value))}
-                  required={calculatedExtraHours > 0}>
-
+                  required={calculatedExtraHours > 0}
+                >
                   {calculatedExtraHours === 0 && <option value={0}>No extra time</option>}
-                  {Array.from({ length: 6 }, (_, i) => i + 1).
-                  filter((h) => h >= calculatedExtraHours).
-                  map((h) =>
-                  <option key={h} value={h}>
+                  {Array.from({ length: 6 }, (_, i) => i + 1)
+                    .filter((h) => h >= calculatedExtraHours)
+                    .map((h) => (
+                      <option key={h} value={h}>
                         {h} hour{h > 1 ? "s" : ""} (+${h * 150})
                       </option>
-                  )}
+                    ))}
                 </select>
               </div>
-              {extraHoursManual !== null && extraHoursManual !== calculatedExtraHours && calculatedExtraHours > 0 &&
-              <p className="text-xs text-muted-foreground mt-1">
-                  Auto-suggested was {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""}. You've manually set {extraHoursManual}.
+              {extraHoursManual !== null && extraHoursManual !== calculatedExtraHours && calculatedExtraHours > 0 && (
+                <p className="text-xs text-muted-foreground mt-1">
+                  Auto-suggested was {calculatedExtraHours} hr{calculatedExtraHours > 1 ? "s" : ""}. You've manually set{" "}
+                  {extraHoursManual}.
                 </p>
-              }
+              )}
             </div>
 
             {/* 360 Photo Booth Packages */}
             <div>
               <label className={labelClass}>360 Photo Booth Package</label>
               <div className="space-y-3">
-                {boothOptions.map((booth) =>
-                <label
-                  key={booth.value}
-                  className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
-                  selectedBooth === booth.value ?
-                  "border-primary bg-primary/10" :
-                  "border-border bg-secondary hover:border-muted-foreground/30"}`
-                  }>
-
+                {boothOptions.map((booth) => (
+                  <label
+                    key={booth.value}
+                    className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                      selectedBooth === booth.value
+                        ? "border-primary bg-primary/10"
+                        : "border-border bg-secondary hover:border-muted-foreground/30"
+                    }`}
+                  >
                     <input
-                    type="radio"
-                    name="booth"
-                    value={booth.value}
-                    checked={selectedBooth === booth.value}
-                    onChange={() => setSelectedBooth(booth.value)}
-                    className="mt-1 accent-primary" />
+                      type="radio"
+                      name="booth"
+                      value={booth.value}
+                      checked={selectedBooth === booth.value}
+                      onChange={() => setSelectedBooth(booth.value)}
+                      className="mt-1 accent-primary"
+                    />
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{booth.displayLabel}</p>
-                      
                     </div>
                   </label>
-                )}
-                {selectedBooth &&
-                <button
-                  type="button"
-                  onClick={() => setSelectedBooth("")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors underline">
-
+                ))}
+                {selectedBooth && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBooth("")}
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+                  >
                     Remove booth selection
                   </button>
-                }
+                )}
               </div>
             </div>
 
@@ -392,47 +515,52 @@ const BookingSection = () => {
             <div>
               <label className={labelClass}>Add-Ons (optional)</label>
               <div className="grid sm:grid-cols-2 gap-3">
-                {otherAddOns.map((addon) =>
-                <label
-                  key={addon.value}
-                  className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
-                  selectedAddOns.includes(addon.value) ?
-                  "border-primary bg-primary/10" :
-                  "border-border bg-secondary hover:border-muted-foreground/30"}`
-                  }>
-
+                {otherAddOns.map((addon) => (
+                  <label
+                    key={addon.value}
+                    className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                      selectedAddOns.includes(addon.value)
+                        ? "border-primary bg-primary/10"
+                        : "border-border bg-secondary hover:border-muted-foreground/30"
+                    }`}
+                  >
                     <input
-                    type="checkbox"
-                    checked={selectedAddOns.includes(addon.value)}
-                    onChange={() => toggleAddOn(addon.value)}
-                    className="accent-primary" />
+                      type="checkbox"
+                      checked={selectedAddOns.includes(addon.value)}
+                      onChange={() => toggleAddOn(addon.value)}
+                      className="accent-primary"
+                    />
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{addon.label}</p>
-                      
                     </div>
                   </label>
-                )}
+                ))}
               </div>
             </div>
 
             <div>
               <label className={labelClass}>Tell us more! We love the details.</label>
-              <textarea name="details" rows={4} className={inputClass} placeholder="Any special requests, themes, or details about your event..." />
+              <textarea
+                name="details"
+                rows={4}
+                className={inputClass}
+                placeholder="Any special requests, themes, or details about your event..."
+              />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-colors disabled:opacity-50">
-
+              className="w-full py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-colors disabled:opacity-50"
+            >
               {isSubmitting ? "Submitting..." : "Submit Booking Request"}
             </button>
           </form>
         </motion.div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default BookingSection;
