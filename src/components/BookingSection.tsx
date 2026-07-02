@@ -425,7 +425,10 @@ const BookingSection = () => {
                     name="miniMixxy"
                     value="satellite"
                     checked={selectedSatellite}
-                    onChange={() => setSelectedSatellite(!selectedSatellite)}
+                    onChange={() => setSelectedSatellite(true)}
+                    onClick={() => {
+                      if (selectedSatellite) setSelectedSatellite(false);
+                    }}
                     className="mt-1 accent-primary"
                   />
 
