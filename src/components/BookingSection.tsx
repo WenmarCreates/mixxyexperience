@@ -421,10 +421,10 @@ const BookingSection = () => {
                   }`}
                 >
                   <input
-                    type="checkbox"
+                    type="radio"
                     checked={selectedSatellite}
                     onChange={() => setSelectedSatellite(!selectedSatellite)}
-                    className="mt-1 accent-primary rounded-full"
+                    className="mt-1 accent-primary"
                   />
 
                   <div>
@@ -432,15 +432,6 @@ const BookingSection = () => {
                     <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
                   </div>
                 </label>
-                {selectedPackage && (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedPackage("")}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
-                  >
-                    Remove package selection
-                  </button>
-                )}
               </div>
 
               {selectedPackage && startTime && endTime && calculatedExtraHours > 0 && (
