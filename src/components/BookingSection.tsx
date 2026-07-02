@@ -405,6 +405,9 @@ const BookingSection = () => {
                       value={pkg.value}
                       checked={selectedPackage === pkg.value}
                       onChange={() => setSelectedPackage(pkg.value)}
+                      onClick={() => {
+                        if (selectedPackage === pkg.value) setSelectedPackage("");
+                      }}
                       className="mt-1 accent-primary"
                     />
 
