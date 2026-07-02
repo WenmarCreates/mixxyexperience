@@ -422,6 +422,8 @@ const BookingSection = () => {
                 >
                   <input
                     type="radio"
+                    name="miniMixxy"
+                    value="satellite"
                     checked={selectedSatellite}
                     onChange={() => setSelectedSatellite(!selectedSatellite)}
                     className="mt-1 accent-primary"
