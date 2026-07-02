@@ -413,6 +413,25 @@ const BookingSection = () => {
                     </div>
                   </label>
                 ))}
+                <label
+                  className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                    selectedSatellite
+                      ? "border-primary bg-primary/10"
+                      : "border-border bg-secondary hover:border-muted-foreground/30"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedSatellite}
+                    onChange={() => setSelectedSatellite(!selectedSatellite)}
+                    className="mt-1 accent-primary rounded-full"
+                  />
+
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">{satelliteOption.displayLabel}</p>
+                    <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
+                  </div>
+                </label>
                 {selectedPackage && (
                   <button
                     type="button"
@@ -424,25 +443,6 @@ const BookingSection = () => {
                 )}
               </div>
 
-              {/* Mini Mixxy – can be added alongside any package, or selected on its own */}
-              <div
-                onClick={() => setSelectedSatellite(!selectedSatellite)}
-                className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all mt-3 ${
-                  selectedSatellite
-                    ? "border-primary bg-primary/10 ring-2 ring-primary/30"
-                    : "border-border bg-secondary hover:border-muted-foreground/30"
-                }`}
-              >
-                <div
-                  className={`mt-1 w-4 h-4 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${selectedSatellite ? "bg-primary border-primary" : "border-muted-foreground/40"}`}
-                >
-                  {selectedSatellite && <span className="text-primary-foreground text-xs font-bold">✓</span>}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{satelliteOption.displayLabel}</p>
-                  <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
-                </div>
-              </div>
               {selectedPackage && startTime && endTime && calculatedExtraHours > 0 && (
                 <div className="mt-3 p-3 rounded-lg border border-accent/30 bg-accent/5">
                   <p className="text-sm text-foreground">
