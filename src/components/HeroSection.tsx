@@ -47,7 +47,7 @@ const HeroSection = () => {
           className="text-3xl md:text-5xl text-accent mb-8 drop-shadow-lg"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
         >
-          Atlanta's Luxury Mobile Beverage Tap Cart
+          Atlanta's Luxury Mobile Beverage Experience
         </motion.p>
 
         <motion.p
@@ -57,9 +57,9 @@ const HeroSection = () => {
           className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
           style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}
         >
-          From Italian-style tap carts and satellite bars to champagne walls, photography, and curated guest
-          experiences, we create stylish, unforgettable moments for weddings, corporate events, private celebrations,
-          and more. Let's Get Mixxy!
+          From our authentic Italian-inspired Piaggio Ape 6-tap beverage cart to our Mini Mixxy Satellite Bar and luxury
+          Tap & Go Self-Serve Wall, we create unforgettable beverage experiences for weddings, corporate events, brand
+          activations, festivals, and private celebrations. Let's Get Mixxy!
         </motion.p>
 
         <motion.div

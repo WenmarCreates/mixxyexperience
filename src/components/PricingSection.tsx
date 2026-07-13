@@ -70,8 +70,27 @@ const packages = [
   price: "$150/hr",
   description: "Portable luxury bar service designed for weddings, private events, corporate gatherings, and upscale celebrations.",
   features: [
-  "Minimum of 2 hours of service",
+  "2-Hour Minimum",
   "2 Licensed bartenders",
+  "Drinkware, napkins, straws, ice & garnishes",
+  "Full setup & breakdown",
+  "Luxury bar décor & custom drink signage",
+  "Insurance included",
+  "Service within a 30-mile radius"]
+
+},
+{
+  name: "Mixxy Tap & Go",
+  subtitle: "Luxury 4-Tap Self-Serve Wall",
+  price: "$250/hr",
+  description: "Perfect for weddings, cocktail hours, corporate events, private parties, brand activations, and upscale celebrations.",
+  features: [
+  "4-tap self-serve beverage wall",
+  "2-Hour Minimum",
+  "Any combination of four: beer, wine, champagne, prosecco, signature cocktails, or mocktails",
+  "1 Tap-Tender",
+  "Elegant fluted wall design with LED lighting",
+  "Drinkware, napkins, straws, ice & garnishes",
   "Full setup & breakdown",
   "Luxury bar décor & custom drink signage",
   "Insurance included",
@@ -200,34 +219,40 @@ const PricingSection = () => {
           )}
         </div>
 
-        {/* Mini Mixxy Satellite Bar */}
-        {packages[4] &&
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-xl p-6 border border-border bg-card mb-20 max-w-md mx-auto flex flex-col">
+        {/* Mini Mixxy Satellite Bar & Mixxy Tap & Go Wall */}
+        <div className="grid md:grid-cols-2 gap-6 mb-20">
+          {packages.slice(4).map((pkg, i) =>
+          <motion.div
+            key={pkg.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="rounded-xl p-6 border border-border bg-card flex flex-col">
 
-            <h3 className="text-xl font-heading font-bold text-foreground mb-2">{packages[4].name}</h3>
-            <p className="text-sm text-muted-foreground mb-4">{packages[4].description}</p>
-            <p className="text-3xl font-bold text-accent mb-6">{packages[4].price}</p>
-            <ul className="space-y-3 mb-8 flex-1">
-              {packages[4].features.map((f) =>
-            <li key={f} className="flex items-start gap-2 text-sm text-foreground/80">
-                  <Check size={16} className="text-primary mt-0.5 shrink-0" />
-                  {f}
-                </li>
-            )}
-            </ul>
-            <a
-            href="#booking"
-            className="block text-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors">
+              <h3 className="text-xl font-heading font-bold text-foreground mb-1">{pkg.name}</h3>
+              {pkg.subtitle &&
+            <p className="text-sm text-accent font-medium mb-2">{pkg.subtitle}</p>
+            }
+              <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
+              <p className="text-3xl font-bold text-accent mb-6">{pkg.price}</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {pkg.features.map((f) =>
+              <li key={f} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <Check size={16} className="text-primary mt-0.5 shrink-0" />
+                    {f}
+                  </li>
+              )}
+              </ul>
+              <a
+              href="#booking"
+              className="block text-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors">
 
-              Book Now
-            </a>
-          </motion.div>
-        }
+                Book Now
+              </a>
+            </motion.div>
+          )}
+        </div>
 
         {/* 360 Photo Booth Packages */}
         <div className="text-center mb-4">

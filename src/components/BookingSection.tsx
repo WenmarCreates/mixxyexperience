@@ -84,9 +84,16 @@ const packageOptions = [
 
 const satelliteOption = {
   value: "satellite",
-  label: "Mini Mixxy",
-  displayLabel: "Mini Mixxy – $150/hr",
+  label: "Mini Mixxy Satellite Bar",
+  displayLabel: "Mini Mixxy Satellite Bar – $150/hr",
   sub: "Portable luxury bar • 2 bartenders • 2-hour minimum",
+};
+
+const tapAndGoOption = {
+  value: "tap-and-go",
+  label: "Mixxy Tap & Go Wall",
+  displayLabel: "Mixxy Tap & Go Wall – $250/hr",
+  sub: "Luxury 4-tap self-serve wall • 1 Tap-Tender • 2-hour minimum",
 };
 
 const boothOptions = [
@@ -136,6 +143,7 @@ const parseTimeToMinutes = (time: string): number => {
 const BookingSection = () => {
   const [selectedPackage, setSelectedPackage] = useState<string>("");
   const [selectedSatellite, setSelectedSatellite] = useState(false);
+  const [selectedTapAndGo, setSelectedTapAndGo] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [selectedBooth, setSelectedBooth] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -163,8 +171,8 @@ const BookingSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!selectedPackage && !selectedSatellite) {
-      toast.error("Please select a package or Mini Mixxy to continue.");
+    if (!selectedPackage && !selectedSatellite && !selectedTapAndGo) {
+      toast.error("Please select a package, Mini Mixxy, or Tap & Go Wall to continue.");
       return;
     }
 
@@ -188,7 +196,8 @@ const BookingSection = () => {
       ...(selectedPackage && {
         package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
       }),
-      ...(selectedSatellite && { "Mini Mixxy": "Yes" }),
+      ...(selectedSatellite && { "Mini Mixxy Satellite Bar": "Yes" }),
+      ...(selectedTapAndGo && { "Mixxy Tap & Go Wall": "Yes" }),
       details: formData.get("details"),
       ...(selectedBooth && {
         "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth,
@@ -232,6 +241,7 @@ const BookingSection = () => {
       form.reset();
       setSelectedPackage("");
       setSelectedSatellite(false);
+      setSelectedTapAndGo(false);
       setSelectedAddOns([]);
       setSelectedBooth("");
       setStartTime("");
@@ -438,6 +448,30 @@ const BookingSection = () => {
                   <div>
                     <p className="font-semibold text-foreground text-sm">{satelliteOption.displayLabel}</p>
                     <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
+                  </div>
+                </label>
+                <label
+                  className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                    selectedTapAndGo
+                      ? "border-primary bg-primary/10"
+                      : "border-border bg-secondary hover:border-muted-foreground/30"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="tapAndGo"
+                    value="tap-and-go"
+                    checked={selectedTapAndGo}
+                    onChange={() => setSelectedTapAndGo(true)}
+                    onClick={() => {
+                      if (selectedTapAndGo) setSelectedTapAndGo(false);
+                    }}
+                    className="mt-1 accent-primary"
+                  />
+
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">{tapAndGoOption.displayLabel}</p>
+                    <p className="text-xs text-muted-foreground">{tapAndGoOption.sub}</p>
                   </div>
                 </label>
               </div>
