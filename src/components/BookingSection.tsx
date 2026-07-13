@@ -143,6 +143,7 @@ const parseTimeToMinutes = (time: string): number => {
 const BookingSection = () => {
   const [selectedPackage, setSelectedPackage] = useState<string>("");
   const [selectedSatellite, setSelectedSatellite] = useState(false);
+  const [selectedTapAndGo, setSelectedTapAndGo] = useState(false);
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [selectedBooth, setSelectedBooth] = useState("");
   const [startTime, setStartTime] = useState("");
