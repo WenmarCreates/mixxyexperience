@@ -171,8 +171,8 @@ const BookingSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!selectedPackage && !selectedSatellite) {
-      toast.error("Please select a package or Mini Mixxy to continue.");
+    if (!selectedPackage && !selectedSatellite && !selectedTapAndGo) {
+      toast.error("Please select a package, Mini Mixxy, or Tap & Go Wall to continue.");
       return;
     }
 
