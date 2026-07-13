@@ -450,6 +450,30 @@ const BookingSection = () => {
                     <p className="text-xs text-muted-foreground">{satelliteOption.sub}</p>
                   </div>
                 </label>
+                <label
+                  className={`flex items-start gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
+                    selectedTapAndGo
+                      ? "border-primary bg-primary/10"
+                      : "border-border bg-secondary hover:border-muted-foreground/30"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="tapAndGo"
+                    value="tap-and-go"
+                    checked={selectedTapAndGo}
+                    onChange={() => setSelectedTapAndGo(true)}
+                    onClick={() => {
+                      if (selectedTapAndGo) setSelectedTapAndGo(false);
+                    }}
+                    className="mt-1 accent-primary"
+                  />
+
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">{tapAndGoOption.displayLabel}</p>
+                    <p className="text-xs text-muted-foreground">{tapAndGoOption.sub}</p>
+                  </div>
+                </label>
               </div>
 
               {selectedPackage && startTime && endTime && calculatedExtraHours > 0 && (
