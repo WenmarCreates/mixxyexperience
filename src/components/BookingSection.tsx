@@ -540,6 +540,9 @@ const BookingSection = () => {
                       value={booth.value}
                       checked={selectedBooth === booth.value}
                       onChange={() => setSelectedBooth(booth.value)}
+                      onClick={() => {
+                        if (selectedBooth === booth.value) setSelectedBooth("");
+                      }}
                       className="mt-1 accent-primary"
                     />
 
