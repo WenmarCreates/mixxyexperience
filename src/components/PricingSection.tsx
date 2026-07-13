@@ -70,8 +70,27 @@ const packages = [
   price: "$150/hr",
   description: "Portable luxury bar service designed for weddings, private events, corporate gatherings, and upscale celebrations.",
   features: [
-  "Minimum of 2 hours of service",
+  "2-Hour Minimum",
   "2 Licensed bartenders",
+  "Drinkware, napkins, straws, ice & garnishes",
+  "Full setup & breakdown",
+  "Luxury bar décor & custom drink signage",
+  "Insurance included",
+  "Service within a 30-mile radius"]
+
+},
+{
+  name: "Mixxy Tap & Go",
+  subtitle: "Luxury 4-Tap Self-Serve Wall",
+  price: "$250/hr",
+  description: "Perfect for weddings, cocktail hours, corporate events, private parties, brand activations, and upscale celebrations.",
+  features: [
+  "4-tap self-serve beverage wall",
+  "2-Hour Minimum",
+  "Any combination of four: beer, wine, champagne, prosecco, signature cocktails, or mocktails",
+  "1 Tap-Tender",
+  "Elegant fluted wall design with LED lighting",
+  "Drinkware, napkins, straws, ice & garnishes",
   "Full setup & breakdown",
   "Luxury bar décor & custom drink signage",
   "Insurance included",
