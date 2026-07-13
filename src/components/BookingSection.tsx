@@ -196,7 +196,8 @@ const BookingSection = () => {
       ...(selectedPackage && {
         package: packageOptions.find((p) => p.value === selectedPackage)?.label || selectedPackage,
       }),
-      ...(selectedSatellite && { "Mini Mixxy": "Yes" }),
+      ...(selectedSatellite && { "Mini Mixxy Satellite Bar": "Yes" }),
+      ...(selectedTapAndGo && { "Mixxy Tap & Go Wall": "Yes" }),
       details: formData.get("details"),
       ...(selectedBooth && {
         "360 Photo Booth": boothOptions.find((b) => b.value === selectedBooth)?.label || selectedBooth,
