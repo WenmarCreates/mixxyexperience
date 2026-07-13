@@ -84,9 +84,16 @@ const packageOptions = [
 
 const satelliteOption = {
   value: "satellite",
-  label: "Mini Mixxy",
-  displayLabel: "Mini Mixxy – $150/hr",
+  label: "Mini Mixxy Satellite Bar",
+  displayLabel: "Mini Mixxy Satellite Bar – $150/hr",
   sub: "Portable luxury bar • 2 bartenders • 2-hour minimum",
+};
+
+const tapAndGoOption = {
+  value: "tap-and-go",
+  label: "Mixxy Tap & Go Wall",
+  displayLabel: "Mixxy Tap & Go Wall – $250/hr",
+  sub: "Luxury 4-tap self-serve wall • 1 Tap-Tender • 2-hour minimum",
 };
 
 const boothOptions = [
