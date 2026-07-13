@@ -241,6 +241,7 @@ const BookingSection = () => {
       form.reset();
       setSelectedPackage("");
       setSelectedSatellite(false);
+      setSelectedTapAndGo(false);
       setSelectedAddOns([]);
       setSelectedBooth("");
       setStartTime("");
