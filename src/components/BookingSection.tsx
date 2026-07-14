@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 const timeOptions = [
-  "12:00 AM",
-  "12:30 AM",
   "1:00 AM",
   "1:30 AM",
   "2:00 AM",
@@ -51,6 +49,8 @@ const timeOptions = [
   "10:30 PM",
   "11:00 PM",
   "11:30 PM",
+  "12:00 AM",
+  "12:30 AM",
 ];
 
 const eventTypes = [
