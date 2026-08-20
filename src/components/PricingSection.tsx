@@ -1,4 +1,4 @@
-import { Check, Clock, Truck, Palette, Zap, Camera, Wine, Sparkles } from "lucide-react";
+import { Check, Clock, Truck, Palette, Zap, Camera, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const packages = [
@@ -156,7 +156,6 @@ const boothPackages = [
 
 const addOns = [
 { icon: Palette, name: "Balloon Décor", description: "Customized to fit any theme.", price: "$150" },
-{ icon: Wine, name: "Champagne Wall", description: "Elegant champagne wall display for your event.", price: "$150" },
 { icon: Camera, name: "Event Photography", description: "$225 for 1 hour. $150/hr for 2+ hours.", price: "From $225" },
 { icon: Truck, name: "Concierge Alcohol Pickup", description: "We handle picking up your alcohol for the event.", price: "$50" },
 { icon: Zap, name: "Generator Rental", description: "Power source for venues without electricity.", price: "$100" },

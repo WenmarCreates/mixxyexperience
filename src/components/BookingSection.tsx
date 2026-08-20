@@ -141,7 +141,6 @@ const boothOptions = [
 
 const otherAddOns = [
   { value: "balloon-decor", label: "Balloon Décor", price: "$150" },
-  { value: "champagne-wall", label: "Champagne Wall", price: "$150" },
   { value: "event-photography", label: "Event Photography", price: "From $225" },
   { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
   { value: "generator", label: "Generator Rental", price: "$100" },
