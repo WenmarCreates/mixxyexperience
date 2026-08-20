@@ -40,7 +40,7 @@ const packages = [
   description: "4-Tap Beverage Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties, and apartment resident events.",
   features: [
   "6-tap display (4 active taps)",
-  "Any combination of four: beer, wine, champagne, prosecco, cocktails",
+  "Any combination of four: beer, wine, champagne, prosecco, signature cocktails, or signature mocktails",
   "3 hours of service",
   "1 Licensed bartender + 1 Tap-Tender",
   "Drinkware, napkins, straws, ice & garnishes",
