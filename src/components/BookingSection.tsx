@@ -116,7 +116,7 @@ const boothOptions = [
   {
     value: "gold",
     label: "Gold 360 Booth",
-    displayLabel: "Gold 360 Booth – $635",
+    displayLabel: "Gold 360 Booth – $735",
     sub: "3 hrs, booth concierge, stanchions, unlimited 4K videos, custom template",
   },
   {
