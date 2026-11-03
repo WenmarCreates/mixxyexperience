@@ -133,11 +133,12 @@ const boothOptions = [
   },
 ];
 
-const otherAddOns = [
+export const otherAddOns = [
   { value: "balloon-decor", label: "Balloon Décor", price: "$150" },
   { value: "event-photography", label: "Event Photography", price: "From $225" },
   { value: "alcohol-pickup", label: "Concierge Alcohol Pickup", price: "$50" },
   { value: "generator", label: "Generator Rental", price: "$100" },
+  { value: "tap-truck-banner", label: "Custom Tap Truck Banner", price: "$185/hr" },
 ];
 
 /** Convert "2:30 PM" → minutes since midnight */

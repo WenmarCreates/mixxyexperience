@@ -141,7 +141,7 @@ const boothPackages = [
   },
 ];
 
-const addOns = [
+export const addOns = [
   { icon: Palette, name: "Balloon Décor", description: "Customized to fit any theme.", price: "$150" },
   {
     icon: Camera,
