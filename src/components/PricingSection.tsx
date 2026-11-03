@@ -1,4 +1,4 @@
-import { Check, Clock, Truck, Palette, Zap, Camera, Sparkles } from "lucide-react";
+import { Check, Clock, Truck, Palette, Zap, Camera, Sparkles, Flag } from "lucide-react";
 import { motion } from "framer-motion";
 
 type Package = {
@@ -163,7 +163,7 @@ export const addOns = [
     price: "$150/hr",
   },
   {
-    icon: Clock,
+    icon: Flag,
     name: "Custom Tap Truck Banner",
     description: "Custom banner with your logo or design on our Tap Truck.",
     price: "$185/hr",
