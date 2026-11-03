@@ -36,7 +36,7 @@ const packages = [
   // },
   {
     name: "Mixxy Classic",
-    price: "$875",
+    price: "$775",
     description:
       "4-Tap Beverage Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties, and apartment resident events.",
     features: [
