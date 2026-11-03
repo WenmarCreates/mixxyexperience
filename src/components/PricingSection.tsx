@@ -179,6 +179,12 @@ const addOns = [
     description: "Additional hours beyond the base 3-hour package.",
     price: "$150/hr",
   },
+  {
+    icon: Clock,
+    name: "Custom Tap Truck Banner",
+    description: "Additional hours beyond the base 3-hour package.",
+    price: "$185/hr",
+  },
 ];
 
 const PricingSection = () => {
