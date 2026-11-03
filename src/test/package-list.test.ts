@@ -36,3 +36,17 @@ describe("add-on consistency", () => {
     expect(otherAddOns.find((a) => a.label === "Custom Tap Truck Banner")?.price).toBe("$185/hr");
   });
 });
+
+describe("photo booth price consistency", () => {
+  it("prices the Gold 360 Booth at $735 on the pricing page and in the booking form", () => {
+    expect(boothPackages.find((p) => p.name === "Gold 360 Booth")?.price).toBe("$735");
+    expect(boothOptions.find((p) => p.label === "Gold 360 Booth")?.displayLabel).toBe("Gold 360 Booth – $735");
+  });
+
+  it("prices every booth package the same on the pricing page and in the booking form", () => {
+    boothPackages.forEach((pkg) => {
+      const option = boothOptions.find((p) => p.label === pkg.name);
+      expect(option?.displayLabel).toBe(`${pkg.name} – ${pkg.price}`);
+    });
+  });
+});
