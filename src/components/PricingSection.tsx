@@ -318,7 +318,7 @@ const PricingSection = () => {
         </div>
 
         {/* Add-Ons */}
-        <h3 className="text-2xl font-heading font-bold text-foreground text-center mb-8">Add-Ons</h3>
+        <h3 className="text-2xl font-heading font-bold text-foreground text-center mb-8">Enhance your Experience</h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {addOns.map((addon) => (
             <div key={addon.name} className="rounded-xl border border-border bg-card p-5">
