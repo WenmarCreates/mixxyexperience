@@ -10,7 +10,7 @@ type Package = {
   popular?: boolean;
 };
 
-const packages: Package[] = [
+export const packages: Package[] = [
   {
     name: "Mixxy PG",
     price: "$600",

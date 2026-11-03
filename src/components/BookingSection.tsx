@@ -71,7 +71,7 @@ const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-
 
 const INCLUDED_HOURS = 3;
 
-const packageOptions = [
+export const packageOptions = [
   {
     value: "pg",
     label: "Mixxy PG",
