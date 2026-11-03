@@ -1,16 +1,7 @@
 import { Check, Clock, Truck, Palette, Zap, Camera, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-type Package = {
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
-  subtitle?: string;
-  popular?: boolean;
-};
-
-const packages: Package[] = [
+const packages = [
   {
     name: "Mixxy PG",
     price: "$600",
