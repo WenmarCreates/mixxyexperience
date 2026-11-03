@@ -1,7 +1,16 @@
 import { Check, Clock, Truck, Palette, Zap, Camera, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-const packages = [
+type Package = {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  subtitle?: string;
+  popular?: boolean;
+};
+
+const packages: Package[] = [
   {
     name: "Mixxy PG",
     price: "$600",
@@ -36,6 +45,7 @@ const packages = [
   // },
   {
     name: "Mixxy Classic",
+    popular: true,
     price: "$775",
     description:
       "4-Tap Beverage Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties, and apartment resident events.",
@@ -195,8 +205,15 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-xl p-6 flex flex-col border border-border bg-card"
+              className={`rounded-xl p-6 flex flex-col ${
+                pkg.popular ? "border-2 border-primary bg-card relative" : "border border-border bg-card"
+              }`}
             >
+              {pkg.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full uppercase tracking-wider">
+                  Most Popular
+                </span>
+              )}
               <h3 className="text-xl font-heading font-bold text-foreground mb-2">{pkg.name}</h3>
               <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
               <p className="text-3xl font-bold text-accent mb-6">{pkg.price}</p>
