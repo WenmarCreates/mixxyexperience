@@ -186,8 +186,8 @@ const PricingSection = () => {
         <p className="text-center text-muted-foreground text-sm mb-16">* Price of alcohol not included *</p>
 
         {/* Main Packages - first 4 in a grid, satellite bar full width below */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          {packages.slice(0, 4).map((pkg, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          {packages.slice(0, 3).map((pkg, i) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 30 }}
@@ -226,7 +226,7 @@ const PricingSection = () => {
 
         {/* Mini Mixxy Satellite Bar & Mixxy Tap & Go Wall */}
         <div className="grid md:grid-cols-2 gap-6 mb-20">
-          {packages.slice(4).map((pkg, i) => (
+          {packages.slice(3).map((pkg, i) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 30 }}
