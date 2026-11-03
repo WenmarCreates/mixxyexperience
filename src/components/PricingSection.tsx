@@ -182,7 +182,8 @@ const addOns = [
   {
     icon: Clock,
     name: "Custom Tap Truck Banner",
-    description: "Additional hours beyond the base 3-hour package.",
+    description:
+      "Personalized banner featuring your logo, event name, or custom design, beautifully displayed on our Little Mixxy Tap Truck.",
     price: "$185/hr",
   },
 ];
