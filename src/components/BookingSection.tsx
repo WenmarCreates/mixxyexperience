@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
-const timeOptions = [
+const baseTimeOptions = [
   "1:00 AM",
   "1:30 AM",
   "2:00 AM",
@@ -51,6 +51,12 @@ const timeOptions = [
   "11:30 PM",
   "12:00 AM",
   "12:30 AM",
+];
+
+// Start the list at 10:00 AM, wrapping the early-morning hours to the end
+const timeOptions = [
+  ...baseTimeOptions.slice(baseTimeOptions.indexOf("10:00 AM")),
+  ...baseTimeOptions.slice(0, baseTimeOptions.indexOf("10:00 AM")),
 ];
 
 const eventTypes = [
