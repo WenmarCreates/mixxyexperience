@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { packages, addOns } from "@/components/PricingSection";
-import { packageOptions, otherAddOns } from "@/components/BookingSection";
+import { packages, addOns, boothPackages } from "@/components/PricingSection";
+import { packageOptions, otherAddOns, boothOptions } from "@/components/BookingSection";
 
 const drinkCards = packages.filter((p) => !p.name.includes("Satellite") && !p.name.includes("Tap & Go"));
 // Extra Service Time is auto-calculated from event times, so it is not a checkbox add-on.

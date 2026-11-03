@@ -95,7 +95,7 @@ export const packages: Package[] = [
   },
 ];
 
-const boothPackages = [
+export const boothPackages = [
   {
     name: "Gold 360 Booth",
     price: "$735",
