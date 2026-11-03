@@ -165,8 +165,7 @@ export const addOns = [
   {
     icon: Clock,
     name: "Custom Tap Truck Banner",
-    description:
-      "Personalized banner featuring your logo, event name, or custom design, beautifully displayed on our Little Mixxy Tap Truck.",
+    description: "Custom banner with your logo or design on our Tap Truck.",
     price: "$185/hr",
   },
 ];
