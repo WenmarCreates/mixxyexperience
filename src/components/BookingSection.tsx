@@ -71,7 +71,7 @@ const guestRanges = ["Below 50 guests", "50-100 guests", "100-200 guests", "200-
 
 const INCLUDED_HOURS = 3;
 
-const packageOptions = [
+export const packageOptions = [
   {
     value: "pg",
     label: "Mixxy PG",
@@ -82,13 +82,7 @@ const packageOptions = [
     value: "classic",
     label: "Mixxy Classic",
     displayLabel: "Mixxy Classic – $775",
-    sub: "4 beer/wine/prosecco taps, 3 hrs, 1 bartender + 1 Tap-Tender",
-  },
-  {
-    value: "plus",
-    label: "Mixxy Plus",
-    displayLabel: "Mixxy Plus – $875",
-    sub: "Classic + swap up to 2 taps for cocktails, personalized signage",
+    sub: "4-tap experience with cocktails, 3 hrs, 1 bartender + 1 Tap-Tender",
   },
   {
     value: "premium",

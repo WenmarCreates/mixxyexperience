@@ -10,7 +10,7 @@ type Package = {
   popular?: boolean;
 };
 
-const packages: Package[] = [
+export const packages: Package[] = [
   {
     name: "Mixxy PG",
     price: "$600",
@@ -26,23 +26,6 @@ const packages: Package[] = [
       "Service within a 30-mile radius",
     ],
   },
-  // {
-  //   name: "Mixxy Classic",
-  //   popular: true,
-  //   price: "$775",
-  //   description: "4-Tap Beverage Experience – Perfect for bridal showers, birthdays, baby showers, and intimate gatherings.",
-  //   features: [
-  //   "6-tap display (4 active taps)",
-  //   "Any combination of four: beer, wine, champagne, prosecco",
-  //   "3 hours of service",
-  //   "1 Licensed bartender + 1 Tap-Tender",
-  //   "Drinkware, napkins, straws, ice & garnishes",
-  //   "Full setup & breakdown",
-  //   "Luxury bar décor & custom drink signage",
-  //   "Insurance included",
-  //   "Service within a 30-mile radius"]
-
-  // },
   {
     name: "Mixxy Classic",
     popular: true,
