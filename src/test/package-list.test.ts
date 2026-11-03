@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { packages, addOns } from "@/components/PricingSection";
-import { packageOptions, otherAddOns } from "@/components/BookingSection";
+import { packages, addOns, boothPackages } from "@/components/PricingSection";
+import { packageOptions, otherAddOns, boothOptions } from "@/components/BookingSection";
 
 const drinkCards = packages.filter((p) => !p.name.includes("Satellite") && !p.name.includes("Tap & Go"));
 // Extra Service Time is auto-calculated from event times, so it is not a checkbox add-on.
@@ -34,5 +34,19 @@ describe("add-on consistency", () => {
   it("prices the Custom Tap Truck Banner at $185/hr on the pricing page and in the booking form", () => {
     expect(addOns.find((a) => a.name === "Custom Tap Truck Banner")?.price).toBe("$185/hr");
     expect(otherAddOns.find((a) => a.label === "Custom Tap Truck Banner")?.price).toBe("$185/hr");
+  });
+});
+
+describe("photo booth price consistency", () => {
+  it("prices the Gold 360 Booth at $735 on the pricing page and in the booking form", () => {
+    expect(boothPackages.find((p) => p.name === "Gold 360 Booth")?.price).toBe("$735");
+    expect(boothOptions.find((p) => p.label === "Gold 360 Booth")?.displayLabel).toBe("Gold 360 Booth – $735");
+  });
+
+  it("prices every booth package the same on the pricing page and in the booking form", () => {
+    boothPackages.forEach((pkg) => {
+      const option = boothOptions.find((p) => p.label === pkg.name);
+      expect(option?.displayLabel).toBe(`${pkg.name} – ${pkg.price}`);
+    });
   });
 });
