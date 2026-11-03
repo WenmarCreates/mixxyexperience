@@ -112,7 +112,7 @@ const tapAndGoOption = {
   sub: "Luxury 4-tap self-serve wall • 1 Tap-Tender • 2-hour minimum",
 };
 
-const boothOptions = [
+export const boothOptions = [
   {
     value: "gold",
     label: "Gold 360 Booth",
