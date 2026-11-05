@@ -82,7 +82,7 @@ export const packageOptions = [
     value: "pg",
     label: "Mixxy PG",
     displayLabel: "Mixxy PG — $600",
-    sub: "Non-Alcoholic Beverages • 4–6 Taps • 1 Tap Attendant - 3 Hours",
+    sub: "Non-Alcoholic Beverages • 4–6 Taps • 1 Tap Attendant • 3 Hours",
   },
   {
     value: "classic",
