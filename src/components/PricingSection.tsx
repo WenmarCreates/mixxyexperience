@@ -168,7 +168,7 @@ export const addOns = [
   {
     icon: Flag,
     name: "Custom 6-Tap Beverage Cart Banner",
-    description: "Custom banner with your logo or design on our Tap Truck.",
+    description: "Custom banner with your logo or design on our Beverage Cart.",
     price: "$185",
   },
 ];
