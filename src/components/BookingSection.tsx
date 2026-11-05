@@ -581,7 +581,7 @@ const BookingSection = () => {
 
             {/* Other Add-Ons */}
             <div>
-              <label className={labelClass}>Add-Ons (optional)</label>
+              <label className={labelClass}>Enhance Your Experience (Optional)</label>
               <div className="grid sm:grid-cols-2 gap-3">
                 {otherAddOns.map((addon) => (
                   <label
