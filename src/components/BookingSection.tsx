@@ -133,8 +133,8 @@ export const boothOptions = [
   },
   {
     value: "glamour-plus",
-    label: "Glamour Booth+",
-    displayLabel: "Glamour Booth+ – $1,200",
+    label: "Glamour Booth Premium",
+    displayLabel: "Glamour Booth Premium – $1,200",
     sub: "All Glamour features + enhanced luxury styling, VIP experience",
   },
 ];
