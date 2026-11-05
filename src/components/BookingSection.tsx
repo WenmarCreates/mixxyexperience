@@ -109,7 +109,7 @@ const tapAndGoOption = {
   value: "tap-and-go",
   label: "Mixxy Tap & Go Wall",
   displayLabel: "Mixxy Tap & Go Wall – $250/hr",
-  sub: "Luxury 4-tap self-serve wall • 1 Tap-Tender • 2-hour minimum",
+  sub: "Luxury 4-tap self-serve wall • 1 Tap-Tender • 3-hour minimum",
 };
 
 export const boothOptions = [
