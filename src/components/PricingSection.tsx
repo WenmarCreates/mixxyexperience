@@ -14,7 +14,7 @@ export const packages: Package[] = [
   {
     name: "Mixxy PG",
     price: "$600",
-    subtitle: "Non-Alcoholic Tap Truck Experience",
+    subtitle: "Non-Alcoholic Beverage Cart Experience",
     description: "Perfect for family-friendly events, baby showers, school functions, and celebrations.",
     features: [
       "Choose 4-6 premium non alcoholic beverages (signature mocktails, lemonades, cold teas, sodas)",
@@ -31,7 +31,7 @@ export const packages: Package[] = [
     name: "Mixxy Classic",
     popular: true,
     price: "$775",
-    subtitle: "4-Tap Mobile Tap Truck Experience",
+    subtitle: "4-Tap Mobile Beverage Cart Experience",
     description: "Perfect for weddings, corporate events, graduation parties, and celebrations.",
     features: [
       "6-tap display (4 active taps)",
@@ -48,7 +48,7 @@ export const packages: Package[] = [
   {
     name: "Mixxy Premium",
     price: "$975",
-    subtitle: "6-Tap Luxury Tap Truck Experience",
+    subtitle: "6-Tap Mobile Beverage Cart Experience",
     description: "Perfect for upscale weddings, galas, luxury events, and corporate activations.",
     features: [
       "6-tap display (6 active taps)",
