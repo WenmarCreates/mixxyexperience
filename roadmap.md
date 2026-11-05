@@ -1,4 +1,5 @@
 # Tasks
+- [x] Rename Glamour Booth+ to Glamour Booth Premium in pricing and booking.
 
 - [x] Add a branded proposal-response confirmation page at /thank-you.
 - [x] Verify the page on desktop and mobile.

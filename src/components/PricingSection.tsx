@@ -135,7 +135,7 @@ export const boothPackages = [
     ],
   },
   {
-    name: "Glamour Booth+",
+    name: "Glamour Booth Premium",
     price: "$1,200",
     duration: "3 hours",
     features: ["All Glamour features", "Enhanced luxury styling", "VIP experience"],
