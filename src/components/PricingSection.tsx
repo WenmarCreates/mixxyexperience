@@ -49,6 +49,7 @@ export const packages: Package[] = [
     price: "$975",
     description: "Full 6-Tap Experience – Designed for weddings, galas, luxury events, and corporate activations.",
     features: [
+      "6-tap display (6 active taps)",
       "Any combination of six options: beer, wine, champagne, prosecco, signature cocktails or signature mocktails",
       "3 hours of service",
       "2 Licensed bartenders + 1 Tap-Tender",
