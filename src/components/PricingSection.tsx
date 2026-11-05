@@ -166,7 +166,7 @@ export const addOns = [
     icon: Flag,
     name: "Custom Tap Truck Banner",
     description: "Custom banner with your logo or design on our Tap Truck.",
-    price: "$185/hr",
+    price: "$185",
   },
 ];
 

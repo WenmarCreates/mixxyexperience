@@ -31,9 +31,9 @@ describe("add-on consistency", () => {
     expect(otherAddOns.map((a) => a.label)).toEqual(bookableAdvertisedAddOns.map((a) => a.name));
   });
 
-  it("prices the Custom Tap Truck Banner at $185/hr on the pricing page and in the booking form", () => {
-    expect(addOns.find((a) => a.name === "Custom Tap Truck Banner")?.price).toBe("$185/hr");
-    expect(otherAddOns.find((a) => a.label === "Custom Tap Truck Banner")?.price).toBe("$185/hr");
+  it("prices the Custom Tap Truck Banner at a one-time $185 on the pricing page and in the booking form", () => {
+    expect(addOns.find((a) => a.name === "Custom Tap Truck Banner")?.price).toBe("$185");
+    expect(otherAddOns.find((a) => a.label === "Custom Tap Truck Banner")?.price).toBe("$185");
   });
 });
 
