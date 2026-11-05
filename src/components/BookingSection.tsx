@@ -601,6 +601,7 @@ const BookingSection = () => {
 
                     <div>
                       <p className="font-semibold text-foreground text-sm">{addon.label}</p>
+                      <p className="text-muted-foreground text-xs mt-0.5">{addon.price}</p>
                     </div>
                   </label>
                 ))}
