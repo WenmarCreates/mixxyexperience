@@ -5,4 +5,4 @@
 - [x] Verify n8n redirect configuration and provide the destination URL.
 - [x] Add and verify the decline confirmation at /thank-you?response=declined.
 - [ ] Connect the live email confirmation: confirmation pages are published; waiting for the user to apply and test the n8n workflow adjustment.
-- [ ] Provide step-by-step approve/decline redirect instructions for the updated workflow export.
+- [x] Provide step-by-step approve/decline redirect instructions for the updated workflow export.
