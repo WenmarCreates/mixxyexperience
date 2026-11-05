@@ -82,7 +82,7 @@ export const packages: Package[] = [
       "Perfect for weddings, cocktail hours, corporate events, private parties, brand activations, and upscale celebrations.",
     features: [
       "4-tap self-serve beverage wall",
-      "2-Hour Minimum",
+      "3-Hour Minimum",
       "Any combination of four: beer, wine, champagne, prosecco, signature cocktails, or mocktails",
       "1 Tap-Tender",
       "Elegant fluted wall design with LED lighting",
