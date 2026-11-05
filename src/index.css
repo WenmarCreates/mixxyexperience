@@ -82,6 +82,11 @@
 }
 
 @layer utilities {
+  .confirmation-page,
+  .confirmation-page h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   .text-gold-italic {
     font-family: var(--font-heading);
     font-style: italic;
