@@ -1,10 +1,13 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowLeft, Check, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const ThankYou = () => {
+  const [searchParams] = useSearchParams();
+  const isDeclined = searchParams.get("response") === "declined";
+
   useEffect(() => {
     const previousTitle = document.title;
     document.title = "Thank You | Little Mixxy";
@@ -35,11 +38,19 @@ const ThankYou = () => {
             <Check className="h-9 w-9" strokeWidth={1.5} aria-hidden="true" />
           </div>
           <p className="mb-4 text-xs font-medium uppercase text-primary">Little Mixxy · Atlanta</p>
-          <h1 className="text-3xl font-[550] leading-tight sm:text-5xl">Thank you for<br className="hidden sm:block" /> your response.</h1>
+          <h1 className="text-3xl font-[550] leading-tight sm:text-5xl">
+            {isDeclined ? "Thank you for letting us know." : <>Thank you for<br className="hidden sm:block" /> your response.</>}
+          </h1>
           <p className="mx-auto mt-6 max-w-md text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
-            We’ve received your proposal response. Our team will be in touch shortly with the next steps.
+            {isDeclined
+              ? "You’ve chosen not to proceed with this proposal. Thank you for considering Little Mixxy for your event."
+              : "We’ve received your proposal response. Our team will be in touch shortly with the next steps."}
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">Your event booking is not yet confirmed.</p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {isDeclined
+              ? "If your plans change, we’d love to hear from you."
+              : "Your event booking is not yet confirmed."}
+          </p>
           <Button asChild size="lg" className="mt-9">
             <Link to="/"><ArrowLeft aria-hidden="true" />Back to Little Mixxy</Link>
           </Button>
