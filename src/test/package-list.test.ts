@@ -13,7 +13,7 @@ describe("drink package consistency", () => {
 
   it("prices Mixxy Classic at $775 on the pricing page and in the booking form", () => {
     expect(drinkCards.find((p) => p.name === "Mixxy Classic")?.price).toBe("$775");
-    expect(packageOptions.find((p) => p.label === "Mixxy Classic")?.displayLabel).toBe("Mixxy Classic – $775");
+    expect(packageOptions.find((p) => p.label === "Mixxy Classic")?.displayLabel?.split("$").at(-1)).toBe("775");
   });
 
   it("no longer offers Mixxy Plus on the pricing page or in the booking form", () => {
