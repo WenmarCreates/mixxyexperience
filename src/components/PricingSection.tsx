@@ -14,7 +14,8 @@ export const packages: Package[] = [
   {
     name: "Mixxy PG",
     price: "$600",
-    description: "Perfect for family-friendly events, baby showers, school functions, and daytime celebrations.",
+    subtitle: "Non-Alcoholic Tap Truck Experience",
+    description: "Perfect for family-friendly events, baby showers, school functions, and celebrations.",
     features: [
       "Choose 4-6 premium non alcoholic beverages (signature mocktails, lemonades, cold teas, sodas)",
       "3 hours of service",
@@ -30,8 +31,8 @@ export const packages: Package[] = [
     name: "Mixxy Classic",
     popular: true,
     price: "$775",
-    description:
-      "4-Tap Beverage Experience with cocktails – Ideal for cocktail hours, corporate events, graduation parties, and apartment resident events.",
+    subtitle: "4-Tap Mobile Tap Truck Experience",
+    description: "Perfect for weddings, corporate events, graduation parties, and celebrations.",
     features: [
       "6-tap display (4 active taps)",
       "Any combination of four: beer, wine, champagne, prosecco, signature cocktails, or signature mocktails",
@@ -47,7 +48,8 @@ export const packages: Package[] = [
   {
     name: "Mixxy Premium",
     price: "$975",
-    description: "Full 6-Tap Experience – Designed for weddings, galas, luxury events, and corporate activations.",
+    subtitle: "6-Tap Luxury Tap Truck Experience",
+    description: "Perfect for upscale weddings, galas, luxury events, and corporate activations.",
     features: [
       "6-tap display (6 active taps)",
       "Any combination of six options: beer, wine, champagne, prosecco, signature cocktails or signature mocktails",
@@ -205,6 +207,7 @@ const PricingSection = () => {
                 </span>
               )}
               <h3 className="text-xl font-heading font-bold text-foreground mb-2">{pkg.name}</h3>
+              {pkg.subtitle && <p className="text-sm text-accent font-medium mb-2">{pkg.subtitle}</p>}
               <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
               <p className="text-3xl font-bold text-accent mb-6">{pkg.price}</p>
               <ul className="space-y-3 mb-8 flex-1">

@@ -82,22 +82,19 @@ export const packageOptions = [
     value: "pg",
     label: "Mixxy PG",
     displayLabel: "Mixxy PG — $600",
-    sub: "Non-Alcoholic Tap Truck Experience",
-    description: "Perfect for family-friendly events, baby showers, school functions, and celebrations.",
+    sub: "Non-Alcoholic Beverages • 4–6 Taps • 1 Tap Attendant - 3 Hours",
   },
   {
     value: "classic",
     label: "Mixxy Classic",
     displayLabel: "Mixxy Classic — $775",
-    sub: "4-Tap Mobile Tap Truck Experience",
-    description: "Perfect for weddings, corporate events, graduation parties, and celebrations.",
+    sub: "4 Taps • 1 Tap Attendant + 1 Bartender • 3 Hours",
   },
   {
     value: "premium",
     label: "Mixxy Premium",
     displayLabel: "Mixxy Premium — $975",
-    sub: "6-Tap Luxury Tap Truck Experience",
-    description: "Perfect for upscale weddings, galas, luxury events, and corporate activations.",
+    sub: "6 Taps • 2 Tap Attendants + 1 Bartender • 3 Hours",
   },
 ];
 
@@ -443,7 +440,6 @@ const BookingSection = () => {
                     <div>
                       <p className="font-semibold text-foreground text-sm">{pkg.displayLabel}</p>
                       <p className="text-xs text-muted-foreground">{pkg.sub}</p>
-                      <p className="text-xs text-muted-foreground mt-1">{pkg.description}</p>
                     </div>
                   </label>
                 ))}
